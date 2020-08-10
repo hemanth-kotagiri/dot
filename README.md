@@ -15,3 +15,9 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 ```
 
 Vundle : https://github.com/VundleVim/Vundle.vim
+- To install in any machine:
+
+```
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
+```
