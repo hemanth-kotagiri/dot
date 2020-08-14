@@ -32,6 +32,8 @@ if has("gui_running")
   endif
 endif
 
+au GUIEnter * simalt ~x
+
 "Below settings are from the Missing Semester
 
 " Comments in Vimscript start with a `"`.
