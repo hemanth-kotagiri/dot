@@ -1,5 +1,4 @@
-### A repo for Vim related resources
-links for plug-in manager
+### A repo dedicated for all my dot-files
 
 Vim-Plug: https://github.com/junegunn/vim-plug
  - To install in a Windows machine using powershell
