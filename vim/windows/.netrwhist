@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =6
+let g:netrw_dirhist_6='F:/Workspace/my-dotfiles/vim/nvim'
+let g:netrw_dirhist_5='F:\Workspace\my-dotfiles\vim'
+let g:netrw_dirhist_4='F:\Workspace\my-dotfiles'
+let g:netrw_dirhist_3='C:/Users/heman/Desktop'
+let g:netrw_dirhist_2='C:\Users\heman\AppData\Local\nvim\Plug-settings'
+let g:netrw_dirhist_1='F:/Workspace/Node Workspace/github-bot'
+let g:netrw_dirhist_0='F:\Workspace\Node Workspace'
+let g:netrw_dirhist_9='F:/Workspace/Node Workspace/github-bot'
+let g:netrw_dirhist_8='F:\Workspace\Node Workspace'
+let g:netrw_dirhist_7='C:\Users\heman'
