@@ -1,14 +1,18 @@
 " Plugins
 call plug#begin('~/.vim/plugged')
 
+    "Utils
     Plug 'tpope/vim-repeat'
     Plug 'tpope/vim-surround'
+    Plug 'preservim/nerdcommenter'
+    Plug 'neoclide/coc.nvim'
     "Themes
     Plug 'morhetz/gruvbox'
     Plug 'ntk148v/vim-horizon'
-    " Utils
-    Plug 'preservim/nerdcommenter'
-    Plug 'neoclide/coc.nvim'
+    Plug 'christianchiarulli/nvcode-color-schemes.vim'
+    Plug 'chriskempson/base16-vim'
+    Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
 
 
 call plug#end()
@@ -29,12 +33,16 @@ set smarttab
 set expandtab
 set smartindent
 set autoindent
-set laststatus=4
+set laststatus=0
 set cursorline
 set splitright
 set encoding=utf-8
 set noerrorbells
 set nowritebackup
+set showtabline=2
+set noshowmode
+set nobackup
+set clipboard=unnamedplus
 au! BufWritePost $MYVIMRC source %
 
 
@@ -54,13 +62,26 @@ let g:gruvbox_contrast_dark='hard'
 set termguicolors
 set t_Co=256
 set background=dark
-colorscheme gruvbox
+let base16colorspace=256
+colorscheme snazzy
 
-" Pluginsettings "
+" Plugin settings "
 
 " Nerd Commenter
 nmap <C-_> <Plug>NERDCommenterToggle
 vmap <C-_> <Plug>NERDCommenterToggle<CR>gv
 
-"Coc
+"CoC
 source ~/.config/nvim/coc.vim
+
+"Airline
+let g:airline_powerline_fonts = 1
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ''
+let g:airline#extensions#tabline#left_alt_sep = ''
+let g:airline#extensions#tabline#right_sep = ''
+let g:airline#extensions#tabline#right_alt_sep = ''
+let g:airline_theme = 'onedark'
+
