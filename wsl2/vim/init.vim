@@ -86,6 +86,10 @@ vmap <C-_> <Plug>NERDCommenterToggle<CR>gv
 "CoC
 source ~/.config/nvim/coc.vim
 
+"FzF
+source ~/.config/nvim/fzf.vim
+
+
 "Airline
 let g:airline_powerline_fonts = 1
 let g:airline_left_sep = ''
