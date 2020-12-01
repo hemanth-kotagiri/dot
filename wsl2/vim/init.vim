@@ -6,11 +6,21 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-surround'
     Plug 'preservim/nerdcommenter'
     Plug 'neoclide/coc.nvim'
+    Plug 'airblade/vim-gitgutter'
+    Plug 'sheerun/vim-polyglot'
+    Plug 'christoomey/vim-tmux-navigator'
+    Plug 'jiangmiao/auto-pairs'
+    Plug 'junegunn/fzf', { 'do': { -> fzf#install()  }  }
+    Plug 'junegunn/fzf.vim'
+    Plug 'airblade/vim-rooter'
     "Themes
     Plug 'morhetz/gruvbox'
     Plug 'ntk148v/vim-horizon'
+    Plug 'NLKNguyen/papercolor-theme'
     Plug 'christianchiarulli/nvcode-color-schemes.vim'
     Plug 'chriskempson/base16-vim'
+    Plug 'flazz/vim-colorschemes'
+    "Airline
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
 
@@ -54,6 +64,8 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
+vnoremap J :m '>+1<CR>gv=gv 
+vnoremap K :m '<-2<CR>gv=gv 
 
 
 
@@ -84,4 +96,3 @@ let g:airline#extensions#tabline#left_alt_sep = ''
 let g:airline#extensions#tabline#right_sep = ''
 let g:airline#extensions#tabline#right_alt_sep = ''
 let g:airline_theme = 'onedark'
-
