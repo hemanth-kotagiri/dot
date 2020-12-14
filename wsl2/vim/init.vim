@@ -92,6 +92,9 @@ source ~/.config/nvim/coc.vim
 "FzF
 source ~/.config/nvim/fzf.vim
 
+"Rainbow
+source ~/.config/nvim/rainbow.vim
+
 
 "Airline
 let g:airline_powerline_fonts = 1
