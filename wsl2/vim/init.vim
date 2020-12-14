@@ -13,6 +13,8 @@ call plug#begin('~/.vim/plugged')
     Plug 'junegunn/fzf', { 'do': { -> fzf#install()  }  }
     Plug 'junegunn/fzf.vim'
     Plug 'airblade/vim-rooter'
+    Plug 'easymotion/vim-easymotion'
+    Plug 'luochen1990/rainbow'
     "Themes
     Plug 'morhetz/gruvbox'
     Plug 'ntk148v/vim-horizon'
@@ -56,6 +58,7 @@ set clipboard=unnamedplus
 au! BufWritePost $MYVIMRC source %
 
 
+"Remaps
 vnoremap < <gv
 vnoremap > >gv
 inoremap <expr> <c-j> ("\<C-n>")
@@ -66,7 +69,7 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 vnoremap J :m '>+1<CR>gv=gv 
 vnoremap K :m '<-2<CR>gv=gv 
-
+inoremap jk <ESC>
 
 
 " Theme settings
