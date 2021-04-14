@@ -187,7 +187,7 @@ exec_always --no-startup-id autotiling
  
 smart_gaps on
 smart_gaps inverse_outer
-smart_borders on
+# smart_borders on
 set $inner_gaps 10
 set $outer_gaps 10
 
@@ -197,3 +197,7 @@ gaps outer $outer_gaps
 
 # Nitrogen Restore Wallpaper
 exec_always nitrogen --restore
+
+## # # # # #  MY BINDINGS # # # # # ##  
+# Start Browser
+bindsym $mod+b exec --no-startup-id brave
