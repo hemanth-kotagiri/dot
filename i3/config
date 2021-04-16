@@ -1,3 +1,7 @@
+#======================================
+#          DEFAULTS 
+#======================================
+
 # SUPER KEY
 set $mod Mod4
 
@@ -64,9 +68,12 @@ bindsym $mod+Shift+Right move right
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
 
-# change container layout (stacked, tabbed, toggle split)
+#======================================
+#             LAYOUTS 
+#======================================
+
 bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
+# bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
@@ -80,6 +87,11 @@ bindsym $mod+a focus parent
 
 # focus the child container
 #bindsym $mod+d focus child
+
+
+#====================================
+#          WORKSPACES 
+#====================================
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
@@ -118,27 +130,21 @@ bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
-# reload the configuration file
+# reload the config
 bindsym $mod+Shift+c reload
 # restart i3 inplace
 bindsym $mod+Shift+r restart
 # exit i3
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
-# resize window (you can also use the mouse for that)
+# resize window
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
 
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
         bindsym h resize shrink width 10 px or 10 ppt
         bindsym j resize grow height 10 px or 10 ppt
         bindsym k resize shrink height 10 px or 10 ppt
         bindsym l resize grow width 10 px or 10 ppt
 
-        # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
         bindsym Down resize grow height 10 px or 10 ppt
         bindsym Up resize shrink height 10 px or 10 ppt
@@ -152,14 +158,18 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
 
-set $bg-color 	         #2f343f
+# Variables for configuring the windows
+set $bg-color 	         #800080
 set $inactive-bg-color   #2f343f
 set $text-color          #f3f4f5
 set $inactive-text-color #676E7D
 set $urgent-bg-color     #E53935
+
+
+#======================================
+#             STATUS-BAR
+#======================================
 
 bar {
         # status_command i3status
@@ -167,10 +177,10 @@ bar {
   	status_command i3blocks -c ~/.config/i3/i3blocks.conf
 }
 
-# AUTO-TILING #
-exec_always --no-startup-id autotiling
 
-# GAPS #
+#======================================
+#                GAPS
+#======================================
  
 smart_gaps on
 smart_gaps inverse_outer
@@ -184,7 +194,9 @@ gaps inner $inner_gaps
 gaps outer $outer_gaps
 
 
-## # # # # #  AUTO-START # # # # # ##  
+#======================================
+#             AUTO-START
+#======================================
 
 # Nitrogen Restore Wallpaper
 exec_always nitrogen --restore
@@ -195,7 +207,13 @@ exec_always blueman-applet
 # Redshift
 exec redshift-gtk -l 28.704060:77.102493
 
-## # # # # #  MY BINDINGS # # # # # ##  
+# Autotiling
+exec_always --no-startup-id autotiling
+
+#======================================
+#          MY BINDINGS 
+#======================================
+
 # Start Browser
 bindsym $mod+b exec --no-startup-id brave
 
@@ -204,3 +222,9 @@ bindsym Control+Mod1+Delete exec ~/.config/i3/shutdown_menu
 
 # Turn camera on/off
 bindsym $mod+c exec --no-startup-id ~/.config/i3/camtoggle
+
+# Launch Whatsapp
+bindsym $mod+w exec --no-startup-id whatsapp-nativefier
+
+# Launch Discord
+bindsym $mod+Shift+d exec --no-startup-id discord
