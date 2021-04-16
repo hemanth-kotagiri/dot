@@ -182,16 +182,18 @@ bar {
 #                GAPS
 #======================================
  
-smart_gaps on
-smart_gaps inverse_outer
+# smart_gaps on
+# smart_gaps inverse_outer
 # smart_borders on
 set $inner_gaps 15
 set $outer_gaps 10
+set $horizontal_gaps 15
 
 
 for_window [class=".*"] border pixel 5
 gaps inner $inner_gaps
 gaps outer $outer_gaps
+gaps horizontal $horizontal_gaps
 
 
 #======================================
@@ -228,3 +230,6 @@ bindsym $mod+w exec --no-startup-id whatsapp-nativefier
 
 # Launch Discord
 bindsym $mod+Shift+d exec --no-startup-id discord
+
+# Launch Notion
+bindsym $mod+n exec --no-startup-id notion-app
