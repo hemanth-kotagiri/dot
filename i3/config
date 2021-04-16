@@ -175,7 +175,7 @@ exec_always --no-startup-id autotiling
 smart_gaps on
 smart_gaps inverse_outer
 # smart_borders on
-set $inner_gaps 10
+set $inner_gaps 15
 set $outer_gaps 10
 
 
@@ -193,8 +193,14 @@ exec_always nitrogen --restore
 exec_always blueman-applet
 
 # Redshift
-exec redshift-gtk -l 28.704060:77.102493 -O 3500
+exec redshift-gtk -l 28.704060:77.102493
 
 ## # # # # #  MY BINDINGS # # # # # ##  
 # Start Browser
 bindsym $mod+b exec --no-startup-id brave
+
+# Shutdown/Restart Script
+bindsym Control+Mod1+Delete exec ~/.config/i3/shutdown_menu
+
+# Turn camera on/off
+bindsym $mod+c exec --no-startup-id ~/.config/i3/camtoggle
