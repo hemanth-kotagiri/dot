@@ -170,6 +170,8 @@ set $inactive-bg-color   #2f343f
 set $text-color          #f3f4f5
 set $inactive-text-color #676E7D
 set $urgent-bg-color     #E53935
+set $bar_color           #487ed4
+set $black_color         #222222
 
 
 #======================================
@@ -180,6 +182,11 @@ bar {
         # status_command i3status
 	position top
   	status_command i3blocks -c ~/.config/i3/i3blocks.conf
+	#colors {
+	    #background $bar_color
+	    #statusline $black_color
+	    #separator $black_color
+	#}
 }
 
 
