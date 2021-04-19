@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =1
+let g:netrw_dirhist_1='/home/hemanth/.config/nvim'
+let g:netrw_dirhist_0='/home/hemanth/.config/i3'
+let g:netrw_dirhist_9='/home/hemanth/.config/i3/Scripts'
+let g:netrw_dirhist_8='/home/hemanth/.config/i3'
+let g:netrw_dirhist_7='/home/hemanth/.config/i3/Scripts'
+let g:netrw_dirhist_6='/home/hemanth/.config/i3'
+let g:netrw_dirhist_5='/home/hemanth/.config/i3/Scripts'
+let g:netrw_dirhist_4='/home/hemanth/.config/i3'
+let g:netrw_dirhist_3='/media/data/Workspace/my-dotfiles/i3/Scripts'
+let g:netrw_dirhist_2='/home/hemanth/.config/i3'
