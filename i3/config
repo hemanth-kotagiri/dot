@@ -79,7 +79,7 @@ bindsym $mod+f fullscreen toggle
 
 bindsym $mod+s layout stacking
 # bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+# bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -182,20 +182,15 @@ bar {
         # status_command i3status
 	position top
   	status_command i3blocks -c ~/.config/i3/i3blocks.conf
-	#colors {
-	    #background $bar_color
-	    #statusline $black_color
-	    #separator $black_color
-	#}
-	 colors {
-	    separator #268bd2
-	    background #002b36
-	    statusline #839496
-	    focused_workspace #fdf6e3 #6c71c4 #fdf6e3
-	    active_workspace #fdf6e3 #6c71c4 #fdf6e3
-	    inactive_workspace #002b36 #586e75 #002b36
-	    urgent_workspace #d33682 #d33682 #fdf6e3
-	}
+     colors {
+        separator #268bd2
+        background #002b36
+        statusline #839496
+        focused_workspace #fdf6e3 #6c71c4 #fdf6e3
+        active_workspace #fdf6e3 #6c71c4 #fdf6e3
+        inactive_workspace #002b36 #586e75 #002b36
+        urgent_workspace #d33682 #d33682 #fdf6e3
+    }
 }
 
 client.focused #6c71c4 #6c71c4 #fdf6e3 #6c71c4
@@ -238,6 +233,9 @@ exec redshift-gtk -l 28.704060:77.102493
 # Autotiling
 exec_always --no-startup-id autotiling
 
+# Picom
+exec_always --no-startup-id picom
+
 #======================================
 #          MY BINDINGS 
 #======================================
@@ -259,3 +257,9 @@ bindsym $mod+Shift+d exec --no-startup-id discord
 
 # Launch Notion
 bindsym $mod+n exec --no-startup-id notion-app
+
+# Launch dmenu-emoji
+bindsym $mod+e exec --no-startup-id $HOME/.config/i3/Scripts/dmenu-unicode
+
+# Launch nautilus
+bindsym $mod+Shift+f exec --no-startup-id nautilus
