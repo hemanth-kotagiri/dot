@@ -1,13 +1,14 @@
+![image](./image.png)
 ### Vim 
 
 - To install in Arch :
      ```
-        sudo pacman -S neovim
+     sudo pacman -S neovim
      ```
 
+    Note: Make sure that you have Git installed.
 - I would recommend the following plugin managers:
 
-    Note: Make sure to install Git.\
     Personally, I use Vim-Plug.
 
     1. [Vim-Plug](https://github.com/junegunn/vim-plug) 
@@ -27,6 +28,5 @@
 
         ```sh
         git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-
         ```
 
