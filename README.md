@@ -1,22 +1,29 @@
-### A repo dedicated for all my dot-files
+### Vim 
 
-Vim-Plug: https://github.com/junegunn/vim-plug
- - To install in a Windows machine using powershell
-```
-iwr -useb https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim |`
-    ni $HOME/vimfiles/autoload/plug.vim -Force
-```
-- To install in a Unix machine
-```
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-```
+- I would recommend the following plugin managers:
 
-Vundle : https://github.com/VundleVim/Vundle.vim
-- To install in any machine:
+    Note: Make sure to install Git.\
+    Personally, I use Vim-Plug.
 
-```
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+    1. [Vim-Plug](https://github.com/junegunn/vim-plug) 
+         - To install in a Windows machine using powershell.
+        ```
+        iwr -useb https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim |`
+            ni $HOME/vimfiles/autoload/plug.vim -Force
+        ```
+        - To install in a Unix environment.
+        ```
+        curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+            https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-```
+        ```
+
+    2. [Vundle](https://github.com/VundleVim/Vundle.vim)
+        - To install in any environment:
+
+        ```
+        git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
+        ```
+
