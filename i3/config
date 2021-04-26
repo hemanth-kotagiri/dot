@@ -170,7 +170,7 @@ set $inactive-bg-color   #2f343f
 set $text-color          #f3f4f5
 set $inactive-text-color #676E7D
 set $urgent-bg-color     #E53935
-set $bar_color           #487ed4
+set $bar_color           #090e33
 set $black_color         #222222
 
 
@@ -184,7 +184,7 @@ bar {
   	status_command i3blocks -c ~/.config/i3/i3blocks.conf
      colors {
         separator #268bd2
-        background #002b36
+        background $bar_color
         statusline #839496
         focused_workspace #fdf6e3 #6c71c4 #fdf6e3
         active_workspace #fdf6e3 #6c71c4 #fdf6e3
@@ -193,7 +193,7 @@ bar {
     }
 }
 
-client.focused #6c71c4 #6c71c4 #fdf6e3 #6c71c4
+client.focused #2bf0c5 #2bf0c5  #fdf6e3 #2bf0c5
 client.focused_inactive #073642 #073642 #eee8d5 #6c71c4
 client.unfocused #073642 #073642 #93a1a1 #586e75
 client.urgent #d33682 #d33682 #fdf6e3 #dc322f
@@ -210,7 +210,7 @@ set $outer_gaps 10
 set $horizontal_gaps 15
 
 
-for_window [class=".*"] border pixel 5
+for_window [class=".*"] border pixel 3
 #for_window [class="Yad"] floating enable
 gaps inner $inner_gaps
 gaps outer $outer_gaps
@@ -234,7 +234,7 @@ exec redshift-gtk -l 28.704060:77.102493
 exec_always --no-startup-id autotiling
 
 # Picom
-exec_always --no-startup-id picom
+# exec_always --no-startup-id picom
 
 #======================================
 #          MY BINDINGS 
@@ -263,3 +263,6 @@ bindsym $mod+e exec --no-startup-id $HOME/.config/i3/Scripts/dmenu-unicode
 
 # Launch nautilus
 bindsym $mod+Shift+f exec --no-startup-id nautilus
+
+# Launch nautilus
+bindsym $mod+t exec --no-startup-id teams
