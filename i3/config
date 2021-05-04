@@ -193,7 +193,7 @@ bar {
     }
 }
 
-client.focused #2bf0c5 #2bf0c5  #fdf6e3 #2bf0c5
+client.focused #2bf0c5 #2bf0c5  #222222 #2bf0c5
 client.focused_inactive #073642 #073642 #eee8d5 #6c71c4
 client.unfocused #073642 #073642 #93a1a1 #586e75
 client.urgent #d33682 #d33682 #fdf6e3 #dc322f
@@ -236,6 +236,15 @@ exec_always --no-startup-id autotiling
 # Picom
 # exec_always --no-startup-id picom
 
+# Autotiling
+exec_always --no-startup-id autotiling
+
+# Dunst
+# exec_always --no-startup-id dunst
+
+# Flameshot
+exec_always --no-startup-id flameshot
+
 #======================================
 #          MY BINDINGS 
 #======================================
@@ -266,3 +275,6 @@ bindsym $mod+Shift+f exec --no-startup-id nautilus
 
 # Launch nautilus
 bindsym $mod+t exec --no-startup-id teams
+
+# Launch signal
+bindsym $mod+Shift+s exec --no-startup-id signal-desktop
