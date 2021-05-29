@@ -1,39 +1,8 @@
-" Plugins
-call plug#begin('~/.vim/plugged')
-
-    "Utils
-    Plug 'tpope/vim-repeat'
-    Plug 'tpope/vim-surround'
-    Plug 'preservim/nerdcommenter'
-    Plug 'neoclide/coc.nvim'
-    Plug 'airblade/vim-gitgutter'
-    Plug 'sheerun/vim-polyglot'
-    Plug 'christoomey/vim-tmux-navigator'
-    Plug 'jiangmiao/auto-pairs'
-    Plug 'junegunn/fzf', { 'do': { -> fzf#install()  }  }
-    Plug 'junegunn/fzf.vim'
-    Plug 'airblade/vim-rooter'
-    Plug 'easymotion/vim-easymotion'
-    Plug 'luochen1990/rainbow'
-    "Themes
-    Plug 'morhetz/gruvbox'
-    Plug 'ntk148v/vim-horizon'
-    Plug 'NLKNguyen/papercolor-theme'
-    Plug 'christianchiarulli/nvcode-color-schemes.vim'
-    Plug 'chriskempson/base16-vim'
-    Plug 'flazz/vim-colorschemes'
-    "Airline
-    Plug 'vim-airline/vim-airline'
-    Plug 'vim-airline/vim-airline-themes'
-
-
-call plug#end()
-
-
-
-"General settings
-let mapleader=" "
-set number
+"================
+"GENERAL SETTINGS
+"================
+let mapleader=" " 
+set number 
 set relativenumber
 syntax enable
 set ruler
@@ -56,9 +25,13 @@ set noshowmode
 set nobackup
 set clipboard=unnamedplus
 au! BufWritePost $MYVIMRC source %
+highlight Normal ctermbg=none
+highlight NonText ctermbg=none
 
+"======
+"REMAPS
+"======
 
-"Remaps
 vnoremap < <gv
 vnoremap > >gv
 inoremap <expr> <c-j> ("\<C-n>")
@@ -67,36 +40,68 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
+nnoremap // :noh
 vnoremap J :m '>+1<CR>gv=gv 
 vnoremap K :m '<-2<CR>gv=gv 
 inoremap jk <ESC>
 
+"=======
+"PLUGINS
+"=======
+
+call plug#begin('~/.vim/plugged')
+
+   "Utils
+   Plug 'tpope/vim-repeat'
+   Plug 'tpope/vim-surround'
+   Plug 'preservim/nerdcommenter'
+   Plug 'neoclide/coc.nvim'
+   Plug 'airblade/vim-gitgutter'
+   Plug 'sheerun/vim-polyglot'
+   Plug 'christoomey/vim-tmux-navigator'
+   Plug 'jiangmiao/auto-pairs'
+   Plug 'junegunn/fzf', { 'do': { -> fzf#install()  }  }
+   Plug 'junegunn/fzf.vim'
+   Plug 'airblade/vim-rooter'
+   Plug 'easymotion/vim-easymotion'
+   Plug 'luochen1990/rainbow'
+   Plug 'mattn/emmet-vim'
+   Plug 'PotatoesMaster/i3-vim-syntax'
+   Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+   Plug 'wakatime/vim-wakatime'
+   Plug 'dart-lang/dart-vim-plugin'
+   Plug 'thosakwe/vim-flutter'
+   "Themes
+   Plug 'morhetz/gruvbox'
+   Plug 'ntk148v/vim-horizon'
+   Plug 'NLKNguyen/papercolor-theme'
+   Plug 'christianchiarulli/nvcode-color-schemes.vim'
+   Plug 'chriskempson/base16-vim'
+   Plug 'flazz/vim-colorschemes'
+   "Airline
+   Plug 'vim-airline/vim-airline'
+   Plug 'vim-airline/vim-airline-themes'
+
+
+call plug#end()
 
 " Theme settings
 let g:gruvbox_contrast_dark='hard'
 set termguicolors
 set t_Co=256
 set background=dark
-let base16colorspace=256
-colorscheme snazzy
+"let base16colorspace=256
+au ColorScheme * hi Normal ctermbg=none guibg=none
+highlight SignColumn guibg=none
+"colorscheme codedark
+colorscheme gruvbox
+""colorscheme graywh
 
-" Plugin settings "
+"================
+"PLUGIN SETTINGS"
+"================
 
-" Nerd Commenter
-nmap <C-_> <Plug>NERDCommenterToggle
-vmap <C-_> <Plug>NERDCommenterToggle<CR>gv
-
-"CoC
-source ~/.config/nvim/coc.vim
-
-"FzF
-source ~/.config/nvim/fzf.vim
-
-"Rainbow
-source ~/.config/nvim/rainbow.vim
-
-
-"Airline
+"         Airline
 let g:airline_powerline_fonts = 1
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
@@ -106,3 +111,22 @@ let g:airline#extensions#tabline#left_alt_sep = ''
 let g:airline#extensions#tabline#right_sep = ''
 let g:airline#extensions#tabline#right_alt_sep = ''
 let g:airline_theme = 'onedark'
+
+"        Nerd Commenter
+nmap <C-_> <Plug>NERDCommenterToggle
+vmap <C-_> <Plug>NERDCommenterToggle<CR>gv
+
+"             COC
+source ~/.config/nvim/coc.vim
+
+"             FzF
+source ~/.config/nvim/fzf.vim
+
+"            Rainbow
+source ~/.config/nvim/rainbow.vim
+
+"        Markdown-Preview
+source ~/.config/nvim/markdown_preview.vim
+
+"            Emmet
+let g:user_emmet_leader_key=','
