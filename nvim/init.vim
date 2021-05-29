@@ -128,5 +128,8 @@ source ~/.config/nvim/rainbow.vim
 "        Markdown-Preview
 source ~/.config/nvim/markdown_preview.vim
 
+"            Flutter
+source ~/.config/nvim/flutter-conf.vim
+
 "            Emmet
 let g:user_emmet_leader_key=','
