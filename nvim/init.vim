@@ -40,6 +40,8 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
+nnoremap <Tab> :bnext
+nnoremap <S-Tab> :bprev
 nnoremap // :noh
 vnoremap J :m '>+1<CR>gv=gv 
 vnoremap K :m '<-2<CR>gv=gv 
@@ -90,12 +92,12 @@ let g:gruvbox_contrast_dark='hard'
 set termguicolors
 set t_Co=256
 set background=dark
-"let base16colorspace=256
+let base16colorspace=256
 au ColorScheme * hi Normal ctermbg=none guibg=none
 highlight SignColumn guibg=none
 "colorscheme codedark
 colorscheme gruvbox
-""colorscheme graywh
+"colorscheme graywh
 
 "================
 "PLUGIN SETTINGS"
