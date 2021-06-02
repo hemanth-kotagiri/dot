@@ -1,4 +1,28 @@
 ![image](./image.png)
+
+<table>
+    <tr>
+        <td>Operating System</td>
+        <td>Arch Linux</td>
+    </tr>
+    <tr>
+        <td>Editor</td>
+        <td>Vim</td>
+    </tr>
+    <tr>
+        <td>Terminal Emulator</td>
+        <td>Alacritty</td>
+    </tr>
+    <tr>
+        <td>Window Manager</td>
+        <td>i3</td>
+    </tr>
+    <tr>
+        <td>File Manager</td>
+        <td>Ranger</td>
+    </tr>
+</table>
+
 ### Vim 
 
 - To install in Arch :
