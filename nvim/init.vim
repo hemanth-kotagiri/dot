@@ -66,7 +66,8 @@ call plug#begin('~/.vim/plugged')
    Plug 'junegunn/fzf.vim'
    Plug 'airblade/vim-rooter'
    Plug 'easymotion/vim-easymotion'
-   Plug 'luochen1990/rainbow'
+   "Plug 'luochen1990/rainbow'
+   Plug 'p00f/nvim-ts-rainbow'
    Plug 'mattn/emmet-vim'
    Plug 'PotatoesMaster/i3-vim-syntax'
    Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
@@ -102,6 +103,7 @@ let g:tokyonight_style = "night"
 let g:tokyonight_italic_functions = 1
 let g:tokyonight_sidebars = [ "qf", "vista_kind", "terminal", "packer" ]
 colorscheme tokyonight
+"colorscheme PaperColor
 "colorscheme gruvbox
 "colorscheme graywh
 
@@ -144,3 +146,7 @@ let g:user_emmet_leader_key=','
 
 "          Tree Sitter
 source ~/.config/nvim/treesitter-conf.vim
+
+"          TS-Rainbow
+source ~/.config/nvim/ts-rainbow-conf.vim
+
