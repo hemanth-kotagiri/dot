@@ -73,7 +73,10 @@ call plug#begin('~/.vim/plugged')
    Plug 'wakatime/vim-wakatime'
    Plug 'dart-lang/dart-vim-plugin'
    Plug 'thosakwe/vim-flutter'
+   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
    "Themes
+   Plug 'tiagovla/tokyodark.nvim'
+   Plug 'folke/tokyonight.nvim'
    Plug 'morhetz/gruvbox'
    Plug 'ntk148v/vim-horizon'
    Plug 'NLKNguyen/papercolor-theme'
@@ -93,10 +96,13 @@ set termguicolors
 set t_Co=256
 set background=dark
 let base16colorspace=256
-au ColorScheme * hi Normal ctermbg=none guibg=none
-highlight SignColumn guibg=none
-"colorscheme codedark
-colorscheme gruvbox
+"au ColorScheme * hi Normal ctermbg=none guibg=none
+"highlight SignColumn guibg=none
+let g:tokyonight_style = "night"
+let g:tokyonight_italic_functions = 1
+let g:tokyonight_sidebars = [ "qf", "vista_kind", "terminal", "packer" ]
+colorscheme tokyonight
+"colorscheme gruvbox
 "colorscheme graywh
 
 "================
@@ -135,3 +141,6 @@ source ~/.config/nvim/flutter-conf.vim
 
 "            Emmet
 let g:user_emmet_leader_key=','
+
+"          Tree Sitter
+source ~/.config/nvim/treesitter-conf.vim
