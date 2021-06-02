@@ -23,7 +23,8 @@
     </tr>
 </table>
 
-### Vim 
+### Vim
+I use the Nightly build, so some features may not work if you install previous builds and intend to use my configuration.
 
 - To install in Arch :
      ```
