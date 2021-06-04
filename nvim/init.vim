@@ -102,6 +102,7 @@ let base16colorspace=256
 let g:tokyonight_style = "night"
 let g:tokyonight_italic_functions = 1
 let g:tokyonight_sidebars = [ "qf", "vista_kind", "terminal", "packer" ]
+"colorscheme nvcode
 colorscheme tokyonight
 "colorscheme PaperColor
 "colorscheme gruvbox
@@ -142,7 +143,7 @@ source ~/.config/nvim/markdown_preview.vim
 source ~/.config/nvim/flutter-conf.vim
 
 "            Emmet
-let g:user_emmet_leader_key=','
+"let g:user_emmet_leader_key=','
 
 "          Tree Sitter
 source ~/.config/nvim/treesitter-conf.vim
