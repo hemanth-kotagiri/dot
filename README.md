@@ -10,6 +10,10 @@
         <td>Vim</td>
     </tr>
     <tr>
+        <td>Shell</td>
+        <td>zsh</td>
+    </tr>
+    <tr>
         <td>Terminal Emulator</td>
         <td>Alacritty</td>
     </tr>
@@ -24,34 +28,41 @@
 </table>
 
 ### Vim
+
 I use the Nightly build, so some features may not work if you install previous builds and intend to use my configuration.
 
-- To install in Arch :
-     ```
-     sudo pacman -S neovim
-     ```
+Note: Make sure that you have Git installed.
 
-    Note: Make sure that you have Git installed.
+- To install in Arch :
+
+```
+sudo pacman -S neovim
+```
+
 - I would recommend the following plugin managers:
 
-    Personally, I use Vim-Plug.
+  Personally, I use Vim-Plug.
 
-    1. [Vim-Plug](https://github.com/junegunn/vim-plug) 
-         - To install in a Windows machine using powershell.
-        ```sh
-        iwr -useb https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim |`
-        ni "$(@($env:XDG_DATA_HOME, $env:LOCALAPPDATA)[$null -eq $env:XDG_DATA_HOME])/nvim-data/site/autoload/plug.vim" -Force
-        ```
-        - To install in a Unix environment.
-        ```sh
-        sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-        ```
+1. [Vim-Plug](https://github.com/junegunn/vim-plug)
 
-    2. [Vundle](https://github.com/VundleVim/Vundle.vim)
-        - To install in any environment:
+   - To install in a Windows machine using powershell.
 
-        ```sh
-        git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-        ```
+   ```sh
+   iwr -useb https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim |`
+   ni "$(@($env:XDG_DATA_HOME, $env:LOCALAPPDATA)[$null -eq $env:XDG_DATA_HOME])/nvim-data/site/autoload/plug.vim" -Force
+   ```
 
+   - To install in an Unix environment.
+
+   ```sh
+   sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+   https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+   ```
+
+2. [Vundle](https://github.com/VundleVim/Vundle.vim)
+
+   - To install in any environment:
+
+   ```sh
+   git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+   ```
