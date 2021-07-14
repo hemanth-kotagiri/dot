@@ -45,8 +45,11 @@ bindkey -v
 alias r=". ranger"
 alias wo="cd /media/data/Workspace"
 alias o="cd Documents/obsidian"
-alias l="ls -la"
-alias ll="ls -l"
+alias ls="lsd --group-dirs first"
+alias l='ls -l'
+alias la='ls -a'
+alias lla='ls -la'
+alias lt='ls --tree'
 alias v="nvim"
 
 source /usr/share/fzf/completion.zsh
@@ -59,6 +62,5 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
 
 autoload -Uz promptinit
 promptinit
-
 
 neofetch
