@@ -1,50 +1,33 @@
-background_opacity: 1.0
+background_opacity: 0.8
+
+# Colors (Ayu Dark)
 colors:
   # Default colors
   primary:
-    background: '0x282c34'
-    foreground: '0xbbc2cf'
-  # Cursor colors
-  cursor:
-    text: '0x000000'
-    cursor: '0xffffff'
-  # Selection colors
-  #
-  selection:
-    text: '0xbbc2cf'
+    background: "#0A0E14"
+    foreground: "#B3B1AD"
+
   # Normal colors
   normal:
-    black:   '0x1c1f24'
-    red:     '0xff6c6b'
-    green:   '0x98be65'
-    yellow:  '0xda8548'
-    blue:    '0x51afef'
-    magenta: '0xc678dd'
-    cyan:    '0x5699af'
-    white:   '0x202328'
+    black: "#01060E"
+    red: "#EA6C73"
+    green: "#91B362"
+    yellow: "#F9AF4F"
+    blue: "#53BDFA"
+    magenta: "#FAE994"
+    cyan: "#90E1C6"
+    white: "#C7C7C7"
+
   # Bright colors
   bright:
-    black:   '0x5b6268'
-    red:     '0xda8548'
-    green:   '0x4db5bd'
-    yellow:  '0xecbe7b'
-    blue:    '0x3071db'
-    magenta: '0xa9a1e1'
-    cyan:    '0x46d9ff'
-    white:   '0xdfdfdf'
-  # Dim colors
-  #
-  # If the dim colors are not set, they will be calculated automatically based
-  # on the `normal` colors.
-  #dim:
-    #black:   '0x000000'
-    #red:     '0x8c3336'
-    #green:   '0x7a8530'
-    #yellow:  '0x97822e'
-    #blue:    '0x506d8f'
-    #magenta: '0x80638e'
-    #cyan:    '0x497e7a'
-    #white:   '0x9a9a9a'
+    black: "#686868"
+    red: "#F07178"
+    green: "#C2D94C"
+    yellow: "#FFB454"
+    blue: "#59C2FF"
+    magenta: "#FFEE99"
+    cyan: "#95E6CB"
+    white: "#FFFFFF"
 
 font:
   normal:
@@ -92,13 +75,3 @@ selection:
   save_to_clipboard: true
 
 live_config_reload: true
-
-#key_bindings:
-#- { key: V, mods: Control|Shift, action: Paste }
-#- { key: C, mods: Control|Shift, action: Copy }
-#- { key: Key0, mods: Control, action: ResetFontSize }
-#- { key: Equals, mods: Control, action: IncreaseFontSize }
-#- { key: Add, mods: Control, action: IncreaseFontSize }
-#- { key: Subtract, mods: Control, action: DecreaseFontSize }
-#- { key: Minus, mods: Control, action: DecreaseFontSize }
-#- { key: N, mods: Control, action: SpawnNewInstance }
