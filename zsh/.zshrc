@@ -44,8 +44,12 @@ bindkey -v
 # ALIAS
 alias r=". ranger"
 alias wo="cd /media/data/Workspace"
+alias fwo="cd /media/data/Workspace/Flutter\ Workspace"
+alias pwo="cd /media/data/Workspace/Python-WorkSpace"
 alias o="cd Documents/obsidian"
+alias d="cd /media/data/Workspace/my-dotfiles"
 alias ls="lsd --group-dirs first"
+alias cat="bat"
 alias l='ls -l'
 alias la='ls -a'
 alias lla='ls -la'
@@ -64,3 +68,5 @@ autoload -Uz promptinit
 promptinit
 
 neofetch
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
