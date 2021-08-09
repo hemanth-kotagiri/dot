@@ -25,8 +25,14 @@ set noshowmode
 set nobackup
 set clipboard=unnamedplus
 au! BufWritePost $MYVIMRC source %
-highlight Normal ctermbg=none
-highlight NonText ctermbg=none
+set scrolloff=10
+"highlight Normal ctermbg=none
+"highlight NonText ctermbg=none
+" Spelling mistakes will be colored up red.
+hi SpellBad cterm=underline ctermfg=203 guifg=#ff5f5f
+hi SpellLocal cterm=underline ctermfg=203 guifg=#ff5f5f
+hi SpellRare cterm=underline ctermfg=203 guifg=#ff5f5f
+hi SpellCap cterm=underline ctermfg=203 guifg=#ff5f5f
 
 "======
 "REMAPS
@@ -46,6 +52,11 @@ nnoremap // :noh
 vnoremap J :m '>+1<CR>gv=gv 
 vnoremap K :m '<-2<CR>gv=gv 
 inoremap jk <ESC>
+noremap j gj
+noremap k gk
+vmap y ygv<Esc>
+nnoremap <leader>sp :normal! mz[s1z=`z<CR>
+map <F5> :setlocal spell!<CR>
 
 "=======
 "PLUGINS
@@ -83,6 +94,7 @@ call plug#begin('~/.vim/plugged')
    Plug 'NLKNguyen/papercolor-theme'
    Plug 'christianchiarulli/nvcode-color-schemes.vim'
    Plug 'chriskempson/base16-vim'
+   Plug 'bluz71/vim-nightfly-guicolors'
    Plug 'flazz/vim-colorschemes'
    "Airline
    Plug 'vim-airline/vim-airline'
@@ -97,13 +109,14 @@ set termguicolors
 set t_Co=256
 set background=dark
 let base16colorspace=256
-"au ColorScheme * hi Normal ctermbg=none guibg=none
-"highlight SignColumn guibg=none
+au ColorScheme * hi Normal ctermbg=none guibg=none
+highlight SignColumn guibg=none
 let g:tokyonight_style = "night"
 let g:tokyonight_italic_functions = 1
 let g:tokyonight_sidebars = [ "qf", "vista_kind", "terminal", "packer" ]
 "colorscheme nvcode
-colorscheme tokyonight
+"colorscheme tokyonight
+colorscheme nightfly
 "colorscheme PaperColor
 "colorscheme gruvbox
 "colorscheme graywh
