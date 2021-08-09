@@ -14,6 +14,15 @@ if [[ -e /usr/share/zsh/manjaro-zsh-config ]]; then
 fi
 
 NEWLINE=$'\n'
+git_prompt() {
+    local branch="$(git symbolic-ref HEAD 2> /dev/null | cut -d'/' -f3)"
+    local branch_truncated="${branch:0:30}"
+    if (( ${#branch} > ${#branch_truncated} )); then
+        branch="${branch_truncated}..."
+    fi
+
+    [ -n "${branch}" ] && echo " (${branch})"
+}
 
 PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%2~%{$fg[red]%}]%{$reset_color%}${NEWLINE}$%b "
 
@@ -48,6 +57,11 @@ alias fwo="cd /media/data/Workspace/Flutter\ Workspace"
 alias pwo="cd /media/data/Workspace/Python-WorkSpace"
 alias o="cd Documents/obsidian"
 alias d="cd /media/data/Workspace/my-dotfiles"
+alias conf="cd ~/.config && r"
+alias vc="cd ~/.config/nvim/ && v ."
+alias i3c="cd ~/.config/i3/ && v config"
+alias zc="v ~/.zshrc"
+alias s="source ~/.zshrc"
 alias ls="lsd --group-dirs first"
 alias cat="bat"
 alias l='ls -l'
@@ -55,6 +69,9 @@ alias la='ls -a'
 alias lla='ls -la'
 alias lt='ls --tree'
 alias v="nvim"
+alias vi="nvim"
+alias vim="nvim"
+alias b="cd /media/volume/B.Tech\ Docs && r"
 
 source /usr/share/fzf/completion.zsh
 source /usr/share/fzf/key-bindings.zsh
