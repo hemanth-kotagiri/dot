@@ -47,6 +47,7 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 nnoremap <Tab> :bnext
+nnoremap Y y$
 nnoremap <S-Tab> :bprev
 nnoremap // :noh
 vnoremap J :m '>+1<CR>gv=gv 
@@ -86,6 +87,7 @@ call plug#begin('~/.vim/plugged')
    Plug 'dart-lang/dart-vim-plugin'
    Plug 'thosakwe/vim-flutter'
    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+   Plug 'junegunn/vim-easy-align'
    "Themes
    Plug 'tiagovla/tokyodark.nvim'
    Plug 'folke/tokyonight.nvim'
@@ -104,19 +106,19 @@ call plug#begin('~/.vim/plugged')
 call plug#end()
 
 " Theme settings
-let g:gruvbox_contrast_dark='hard'
+let g:gruvbox_contrast_dark        = 'hard'
 set termguicolors
-set t_Co=256
-set background=dark
-let base16colorspace=256
-au ColorScheme * hi Normal ctermbg=none guibg=none
-highlight SignColumn guibg=none
-let g:tokyonight_style = "night"
-let g:tokyonight_italic_functions = 1
-let g:tokyonight_sidebars = [ "qf", "vista_kind", "terminal", "packer" ]
-"colorscheme nvcode
+set t_Co                           =256
+set background                     =dark
+let base16colorspace               = 256
+au ColorScheme * hi Normal ctermbg = none guibg=none
+highlight SignColumn guibg         = none
+let g:tokyonight_style             = "night"
+let g:tokyonight_italic_functions  = 1
+let g:tokyonight_sidebars          = [ "qf", "vista_kind", "terminal", "packer" ]
+colorscheme nvcode
 "colorscheme tokyonight
-colorscheme nightfly
+"colorscheme nightfly
 "colorscheme PaperColor
 "colorscheme gruvbox
 "colorscheme graywh
@@ -126,15 +128,15 @@ colorscheme nightfly
 "================
 
 "         Airline
-let g:airline_powerline_fonts = 1
-let g:airline_left_sep = ''
-let g:airline_right_sep = ''
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#left_sep = ''
-let g:airline#extensions#tabline#left_alt_sep = ''
-let g:airline#extensions#tabline#right_sep = ''
+let g:airline_powerline_fonts                  = 1
+let g:airline_left_sep                         = ''
+let g:airline_right_sep                        = ''
+let g:airline#extensions#tabline#enabled       = 1
+let g:airline#extensions#tabline#left_sep      = ''
+let g:airline#extensions#tabline#left_alt_sep  = ''
+let g:airline#extensions#tabline#right_sep     = ''
 let g:airline#extensions#tabline#right_alt_sep = ''
-let g:airline_theme = 'onedark'
+let g:airline_theme                            = 'onedark'
 
 "        Nerd Commenter
 nmap <C-_> <Plug>NERDCommenterToggle
@@ -156,11 +158,17 @@ source ~/.config/nvim/markdown_preview.vim
 source ~/.config/nvim/flutter-conf.vim
 
 "            Emmet
-"let g:user_emmet_leader_key=','
+let g:user_emmet_leader_key=','
 
 "          Tree Sitter
 source ~/.config/nvim/treesitter-conf.vim
 
 "          TS-Rainbow
 source ~/.config/nvim/ts-rainbow-conf.vim
+
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
 
