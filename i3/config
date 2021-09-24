@@ -20,8 +20,8 @@ exec --no-startup-id nm-applet
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+bindsym XF86AudioMute        exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+bindsym XF86AudioMicMute     exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
 # Key Indicator
 bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
@@ -47,9 +47,9 @@ bindsym $mod+k focus up
 bindsym $mod+l focus right
 
 # alternatively, the arrow keys to change focus:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
+bindsym $mod+Left  focus left
+bindsym $mod+Down  focus down
+bindsym $mod+Up    focus up
 bindsym $mod+Right focus right
 
 # move focused window
@@ -59,9 +59,9 @@ bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Left  move left
+bindsym $mod+Shift+Down  move down
+bindsym $mod+Shift+Up    move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
@@ -140,20 +140,20 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace
 bindsym $mod+Shift+r restart
 # exit i3
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Exit?' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window
 mode "resize" {
 
-        bindsym h resize shrink width 10 px or 10 ppt
-        bindsym j resize grow height 10 px or 10 ppt
-        bindsym k resize shrink height 10 px or 10 ppt
-        bindsym l resize grow width 10 px or 10 ppt
+        bindsym h     resize shrink width  10 px or 10 ppt
+        bindsym j     resize grow   height 10 px or 10 ppt
+        bindsym k     resize shrink height 10 px or 10 ppt
+        bindsym l     resize grow   width  10 px or 10 ppt
 
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+        bindsym Left  resize shrink width  10 px or 10 ppt
+        bindsym Down  resize grow   height 10 px or 10 ppt
+        bindsym Up    resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow   width  10 px or 10 ppt
 
         # back to normal: Enter or Escape or $mod+r
         bindsym Return mode "default"
@@ -194,10 +194,10 @@ bar {
     #}
 }
 
-client.focused $focused_col $focused_col #222222 $focused_col 
-client.focused_inactive #073642 #073642 #eee8d5 #6c71c4
-client.unfocused #073642 #073642 #93a1a1 #586e75
-client.urgent #d33682 #d33682 #fdf6e3 #dc322f
+client.focused          $focused_col $focused_col #222222 $focused_col
+client.focused_inactive #073642      #073642      #eee8d5 #6c71c4
+client.unfocused        #073642      #073642      #93a1a1 #586e75
+client.urgent           #d33682      #d33682      #fdf6e3 #dc322f
 
 #======================================
 #                GAPS
@@ -205,8 +205,8 @@ client.urgent #d33682 #d33682 #fdf6e3 #dc322f
 #smart_gaps on
 #smart_gaps inverse_outer
 #smart_borders on
-set $inner_gaps 10
-set $outer_gaps 10
+set $inner_gaps      10
+set $outer_gaps      10
 set $horizontal_gaps 10
 
 
@@ -214,8 +214,8 @@ for_window [class=".*"] border pixel 1
 #for_window [class="Yad"] floating enable
 
 #for_window [class="whatsapp-nativefier-d40211"] floating enable move absolute position center
-gaps inner $inner_gaps
-gaps outer $outer_gaps
+gaps inner      $inner_gaps
+gaps outer      $outer_gaps
 gaps horizontal $horizontal_gaps
 
 
@@ -224,7 +224,7 @@ gaps horizontal $horizontal_gaps
 #======================================
 
 # Nitrogen Restore Wallpaper
-#exec_always nitrogen --restore
+exec_always nitrogen --restore
 
 # feh restore wallpaper
 exec_always ~/.fehbg
@@ -255,37 +255,38 @@ exec_always --no-startup-id flameshot
 #======================================
 
 # Start Browser
-bindsym $mod+b exec --no-startup-id brave
+bindsym $mod+b              exec --no-startup-id brave
 
 # Shutdown/Restart Script
 bindsym Control+Mod1+Delete exec ~/.config/i3/Scripts/shutdown_menu
 
 # Turn camera on/off
-bindsym $mod+c exec --no-startup-id ~/.config/i3/Scripts/camtoggle
+bindsym $mod+c              exec --no-startup-id ~/.config/i3/Scripts/camtoggle
 
 # Launch Whatsapp
-bindsym $mod+Shift+w exec --no-startup-id whatsapp-nativefier
+bindsym $mod+Shift+w        exec --no-startup-id whatsapp-nativefier
 
 # Launch Discord
-bindsym $mod+Shift+d exec --no-startup-id discord
+bindsym $mod+Shift+d        exec --no-startup-id discord
 
 # Launch Notion
-bindsym $mod+n exec --no-startup-id notion-app
+bindsym $mod+n              exec --no-startup-id notion-app
 
 # Launch rofi-emoji
-bindsym $mod+e exec --no-startup-id rofi -show emoji -modi emoji
+bindsym $mod+e              exec --no-startup-id rofi -show emoji -modi emoji
 
 # Launch nautilus
-bindsym $mod+Shift+f exec --no-startup-id nautilus
+bindsym $mod+Shift+f        exec --no-startup-id nautilus
 
 # Launch nautilus
-bindsym $mod+t exec --no-startup-id teams
+bindsym $mod+t              exec --no-startup-id teams
 
 # Launch signal
-bindsym $mod+Shift+s exec --no-startup-id signal-desktop
+bindsym $mod+Shift+s        exec --no-startup-id signal-desktop
 
 # Launch rofi window
-bindsym $mod+w exec --no-startup-id rofi -show window
+bindsym $mod+w              exec --no-startup-id rofi -show window
 
-# feh
-bindsym $mod+m exec feh ~/Pictures/backgrounds/* --randomize --bg-fill
+# feh bindsym $mod+m exec feh ~/Pictures/backgrounds/* --randomize --bg-fill
+
+#bindsym $mod+w exec --no-startup-id "i3-msg 'workspace 1; append_layout /home/hemanth/.config/i3/workspace-1.json'"
