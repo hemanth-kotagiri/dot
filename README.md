@@ -3,7 +3,7 @@
 <table>
     <tr>
         <td>Operating System</td>
-        <td>Arch Linux</td>
+        <td>GNU/Linux</td>
     </tr>
     <tr>
         <td>Editor</td>
