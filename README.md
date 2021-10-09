@@ -3,7 +3,11 @@
 <table>
     <tr>
         <td>Operating System</td>
-        <td>GNU/Linux</td>
+        <td>Arch Linux</td>
+    </tr>
+    <tr>
+        <td>Window Manager</td>
+        <td>i3</td>
     </tr>
     <tr>
         <td>Editor</td>
@@ -18,12 +22,12 @@
         <td>Alacritty</td>
     </tr>
     <tr>
-        <td>Window Manager</td>
-        <td>i3</td>
-    </tr>
-    <tr>
         <td>File Manager</td>
         <td>Ranger</td>
+    </tr>
+    <tr>
+        <td>PDF Reader</td>
+        <td>Zathura</td>
     </tr>
 </table>
 
