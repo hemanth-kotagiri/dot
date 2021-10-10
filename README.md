@@ -1,5 +1,7 @@
 ![image](./image.png)
 
+Note: Soon moving all my config to suckless.
+
 <table>
     <tr>
         <td>Operating System</td>
