@@ -1,0 +1,5 @@
+xset r rate 210 40 &
+picom --experimental-backends &
+nitrogen --restore &
+blueman-applet &
+nm-applet &
