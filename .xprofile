@@ -1,5 +1,8 @@
 xset r rate 210 40 &
-picom --experimental-backends &
+dwmblocks &
+picom &
 nitrogen --restore &
 blueman-applet &
+redshift-gtk -l 28.704060:77.102493 &
+flameshot &
 nm-applet &
