@@ -1,6 +1,12 @@
 ![image](./image.png)
 
-Note: Soon moving all my config to suckless.
+<p align="center">
+    <img width=40 src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Archlinux-icon-crystal-64.svg/1024px-Archlinux-icon-crystal-64.svg.png">
+    <img width=40 src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/vim/vim.png">&nbsp
+    <img width=100 src="https://dwm.suckless.org/dwm.svg">&nbsp
+    <img width=60 src="st.png">&nbsp
+    <img width=60 src="https://upload.wikimedia.org/wikipedia/commons/e/e4/Ranger_logo.png">&nbsp
+</p>
 
 <table>
     <tr>
@@ -9,7 +15,7 @@ Note: Soon moving all my config to suckless.
     </tr>
     <tr>
         <td>Window Manager</td>
-        <td>i3</td>
+        <td>DWM</td>
     </tr>
     <tr>
         <td>Editor</td>
@@ -21,7 +27,7 @@ Note: Soon moving all my config to suckless.
     </tr>
     <tr>
         <td>Terminal Emulator</td>
-        <td>Alacritty</td>
+        <td>ST</td>
     </tr>
     <tr>
         <td>File Manager</td>
@@ -32,6 +38,7 @@ Note: Soon moving all my config to suckless.
         <td>Zathura</td>
     </tr>
 </table>
+My entire workflow is driven in the spirit of Vim.
 
 ### Vim
 
