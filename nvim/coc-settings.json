@@ -1,13 +1,28 @@
 {
-  "coc.preferences.formatOnSaveFiletypes": ["dart", "css", "markdown", "javascript", "graphql", "html", "yaml",  "json", "python", "c"],
-
+  "coc.preferences.formatOnSaveFiletypes": [
+    "jsx",
+    "dart",
+    "css",
+    "markdown",
+    "javascript",
+    "graphql",
+    "html",
+    "yaml",
+    "json",
+    "python",
+    "c",
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "json",
+    "graphql",
+    "elixir",
+    "eelixir"
+  ],
   "python.linting.enabled": true,
   "python.linting.pylintEnabled": true,
 
-  "snippets.ultisnips.directories":
-  [
-    "UltiSnips",
-    "~/.config/nvim/utils/snips"
-  ],
+  "snippets.ultisnips.directories": ["UltiSnips", "~/.config/nvim/utils/snips"],
   "clangd.path": "/home/hemanth/.config/coc/extensions/coc-clangd-data/install/12.0.0/clangd_12.0.0/bin/clangd"
 }

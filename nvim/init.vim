@@ -15,7 +15,7 @@ set expandtab
 set smartindent
 set autoindent
 set laststatus=0
-set cursorline
+"set cursorline
 set splitright
 set encoding=utf-8
 set noerrorbells
@@ -80,6 +80,7 @@ call plug#begin('~/.vim/plugged')
    Plug 'easymotion/vim-easymotion'
    "Plug 'luochen1990/rainbow'
    Plug 'p00f/nvim-ts-rainbow'
+   Plug 'terryma/vim-multiple-cursors'
    Plug 'mattn/emmet-vim'
    Plug 'PotatoesMaster/i3-vim-syntax'
    Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
@@ -88,8 +89,11 @@ call plug#begin('~/.vim/plugged')
    Plug 'thosakwe/vim-flutter'
    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
    Plug 'junegunn/vim-easy-align'
+   Plug 'tpope/vim-fugitive'
    "Themes
    Plug 'tiagovla/tokyodark.nvim'
+   Plug 'hzchirs/vim-material'
+   Plug 'dylanaraps/wal.vim'
    Plug 'folke/tokyonight.nvim'
    Plug 'morhetz/gruvbox'
    Plug 'ntk148v/vim-horizon'
@@ -107,21 +111,25 @@ call plug#end()
 
 " Theme settings
 let g:gruvbox_contrast_dark        = 'hard'
-set termguicolors
+"set termguicolors
 set t_Co                           =256
 set background                     =dark
 let base16colorspace               = 256
 au ColorScheme * hi Normal ctermbg = none guibg=none
 highlight SignColumn guibg         = none
 let g:tokyonight_style             = "night"
+let g:material_style='oceanic'
 let g:tokyonight_italic_functions  = 1
 let g:tokyonight_sidebars          = [ "qf", "vista_kind", "terminal", "packer" ]
-colorscheme nvcode
+"colorscheme torte
+"colorscheme nvcode
 "colorscheme tokyonight
 "colorscheme nightfly
 "colorscheme PaperColor
-"colorscheme gruvbox
+colorscheme gruvbox
 "colorscheme graywh
+"colorscheme wal
+"colorscheme vim-material
 
 "================
 "PLUGIN SETTINGS"
@@ -166,9 +174,11 @@ source ~/.config/nvim/treesitter-conf.vim
 "          TS-Rainbow
 source ~/.config/nvim/ts-rainbow-conf.vim
 
+"          Git-Fugitive
+source ~/.config/nvim/fugitive.vim
+
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
 
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
-
