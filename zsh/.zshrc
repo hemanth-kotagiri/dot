@@ -9,6 +9,10 @@ export ANDROID_SDK_ROOT=$HOME/Android/Sdk
 export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 
+# pfetch config
+export PF_ASCII="arch"
+export PF_INFO="ascii title uptime memory de editor"
+
 if [[ -e /usr/share/zsh/manjaro-zsh-config ]]; then
   source /usr/share/zsh/manjaro-zsh-config
 fi
@@ -53,6 +57,7 @@ bindkey -v
 # ALIAS
 alias r=". ranger"
 alias wo="cd /media/data/Workspace"
+alias sc="cd /media/data/Workspace/suckless"
 alias fwo="cd /media/data/Workspace/Flutter\ Workspace"
 alias pwo="cd /media/data/Workspace/Python-WorkSpace"
 alias o="cd ~/Documents/obsidian"
@@ -74,6 +79,14 @@ alias v="nvim"
 alias vi="nvim"
 alias vim="nvim"
 alias b="cd /media/volume/B.Tech\ Docs && r"
+alias books="cd /media/data/Education/Books && r"
+alias edu="cd /media/data/Education && r"
+alias status="git status"
+alias pull="git pull"
+alias push="git push"
+alias log="git log"
+alias wa="cd /media/data/linux-wall/ && r"
+alias lg="lazygit"
 
 source /usr/share/fzf/completion.zsh
 source /usr/share/fzf/key-bindings.zsh
@@ -86,6 +99,8 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
 autoload -Uz promptinit
 promptinit
 
-neofetch
+
+#neofetch
+pfetch
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
