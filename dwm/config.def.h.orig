@@ -12,6 +12,7 @@
 static const unsigned int borderpx  = 3;        /* border pixel of windows */
 static const unsigned int gappx     = 5;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
+static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
 static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
 static const unsigned int systrayonleft = 0;   	/* 0: systray in the right corner, >0: systray on left of status text */
 static const unsigned int systrayspacing = 2;   /* systray spacing */
@@ -43,9 +44,13 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
+	/* class     instance  title           tags mask  isfloating  isterminal  noswallow  monitor */
+	{ "Gimp",    NULL,     NULL,           0,         1,          0,           0,        -1 },
+	{ "Firefox", NULL,     NULL,           1 << 8,    0,          0,          -1,        -1 },
+	{ "St",      NULL,     NULL,           0,         0,          1,           0,        -1 },
+	{ "st-256color", NULL, NULL,           0,         0,          1,           0,        -1 },
+	{ "ranger",  NULL,     NULL,           0,         0,          1,           0,        -1 },
+	{ NULL,      NULL,     "Event Tester", 0,         0,          0,           1,        -1 }, /* xev */
 };
 
 /* layout(s) */
@@ -74,27 +79,39 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon , "-fn", dmenufont};
 static const char *termcmd[]  = { "st", NULL };
 static const char *brave[]  = { "brave", NULL };
 static const char *emoji_launcher[]  = { "rofi", "-show", "emoji", NULL };
+static const char *rofi_window[]  = { "rofi", "-show", "window", NULL };
 static const char *naut[]  = { "nautilus", NULL };
+static const char *shutdown_menu[]  = { "shutdown_menu", NULL };
+static const char *whatsapp[]  = { "whatsapp-nativefier", NULL };
+static const char *notion[]  = { "notion-app", NULL };
+static const char *signal_app[]  = { "signal-desktop", NULL };
 
 /* Volume control */
-static const char *upvol[]   = { "/usr/bin/pactl", "set-sink-volume", "0", "+5%",     NULL };
-static const char *downvol[] = { "/usr/bin/pactl", "set-sink-volume", "0", "-5%",     NULL };
-static const char *mutevol[] = { "/usr/bin/pactl", "set-sink-mute",   "0", "toggle",  NULL };
+static const char *upvol[]   = { "amixer", "-D", "pulse",  "sset","Master", "5%+",     NULL };
+static const char *downvol[] = { "amixer", "-D", "pulse",  "sset","Master", "5%-",     NULL };
+static const char *mutevol[] = { "amixer", "-D", "pulse",  "sset","Master", "1+", "toggle",     NULL };
 
 #include "patches/shiftview.c"
 #include <X11/XF86keysym.h>
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
+	// Personal
 	{ MODKEY,                       XK_e,      spawn,          {.v = emoji_launcher } },
+	{ ControlMask|Mod1Mask,         XK_Delete, spawn,          {.v = shutdown_menu } },
 	{ MODKEY|ShiftMask,             XK_f,      spawn,          {.v = naut } },
-	{ MODKEY,                       XK_n,      shiftview,      {.i = +1 }},
-	{ MODKEY,                       XK_p,      shiftview,      {.i = -1 }},
+	{ MODKEY|ShiftMask,             XK_w,      spawn,          {.v = whatsapp } },
+	{ MODKEY|ShiftMask,             XK_s,      spawn,          {.v = signal_app } },
+	{ MODKEY|ShiftMask,             XK_n,      spawn,          {.v = notion } },
+	{ MODKEY,                       XK_w,      spawn,          {.v = rofi_window } },
+	// DEFAULTS
+	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY,                       XK_n,      shiftview,      {.i = -1 }},
+	{ MODKEY,                       XK_p,      shiftview,      {.i = +1 }},
 	{ MODKEY,                       XK_b,      spawn,          {.v = brave }},
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, zoom,           {0} },
