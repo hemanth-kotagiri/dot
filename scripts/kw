@@ -1,0 +1,1 @@
+ps -e | grep WhatsApp | awk '{print $1}' | xargs kill
