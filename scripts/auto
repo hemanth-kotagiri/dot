@@ -1,10 +1,8 @@
 #!/bin/sh
 sleep 1;
-xdotool key super+b
-sleep 2;
 xdotool key super+2
 xdotool key super+shift+w
-sleep 2;
+sleep 3;
 xdotool key super+d
 xdotool type "discord"
 xdotool key Return
@@ -23,6 +21,5 @@ xdotool type "obsidian"
 xdotool key Return
 sleep 6;
 xdotool key super+shift+Return
-xdotool key super 2
-xdotool key super+j
 xdotool key super+1
+xdotool key super+b
