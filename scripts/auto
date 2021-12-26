@@ -4,11 +4,12 @@ xdotool key super+b
 sleep 2;
 xdotool key super+2
 xdotool key super+shift+w
+sleep 2;
 xdotool key super+d
 xdotool type "discord"
 xdotool key Return
 xdotool key super+shift+l
-sleep 5;
+sleep 6;
 xdotool key super+3
 xdotool key super+Return
 sleep 1;
@@ -16,10 +17,12 @@ xdotool key super+4
 xdotool key super+d
 xdotool type "notion-app"
 xdotool key Return
-sleep 1;
+sleep 2;
 xdotool key super+d
 xdotool type "obsidian"
 xdotool key Return
-sleep 5;
+sleep 6;
 xdotool key super+shift+Return
+xdotool key super 2
+xdotool key super+j
 xdotool key super+1
