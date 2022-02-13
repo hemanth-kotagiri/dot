@@ -87,6 +87,8 @@ alias push="git push"
 alias log="git log"
 alias wa="cd /media/data/linux-wall/ && r"
 alias lg="lazygit"
+alias dwc="cd /media/data/Workspace/suckless/dwm && v config.def.h"
+alias dwco="v ~/.cache/wal/colors-wal-dwm.h"
 
 source /usr/share/fzf/completion.zsh
 source /usr/share/fzf/key-bindings.zsh
