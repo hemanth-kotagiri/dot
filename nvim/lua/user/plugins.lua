@@ -50,6 +50,7 @@ return packer.startup(function(use)
 
   -- Colorschemes
   use "lunarvim/colorschemes"
+  use 'tiagovla/tokyodark.nvim'
 
   -- cmp plugins
   use "hrsh7th/nvim-cmp"
