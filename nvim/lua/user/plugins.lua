@@ -47,6 +47,7 @@ return packer.startup(function(use)
   use 'tpope/vim-repeat'
   use 'tpope/vim-surround'
   use 'mattn/emmet-vim'
+  use 'nvim-lualine/lualine.nvim'
 
   -- Colorschemes
   use "lunarvim/colorschemes"
