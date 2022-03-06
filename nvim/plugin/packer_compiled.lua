@@ -114,6 +114,11 @@ _G.packer_plugins = {
     path = "/home/hemanth/.local/share/nvim/site/pack/packer/start/colorschemes",
     url = "https://github.com/lunarvim/colorschemes"
   },
+  ["emmet-vim"] = {
+    loaded = true,
+    path = "/home/hemanth/.local/share/nvim/site/pack/packer/start/emmet-vim",
+    url = "https://github.com/mattn/emmet-vim"
+  },
   ["friendly-snippets"] = {
     loaded = true,
     path = "/home/hemanth/.local/share/nvim/site/pack/packer/start/friendly-snippets",
@@ -203,6 +208,16 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/hemanth/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
+  },
+  ["vim-repeat"] = {
+    loaded = true,
+    path = "/home/hemanth/.local/share/nvim/site/pack/packer/start/vim-repeat",
+    url = "https://github.com/tpope/vim-repeat"
+  },
+  ["vim-surround"] = {
+    loaded = true,
+    path = "/home/hemanth/.local/share/nvim/site/pack/packer/start/vim-surround",
+    url = "https://github.com/tpope/vim-surround"
   },
   ["vim-wakatime"] = {
     loaded = true,

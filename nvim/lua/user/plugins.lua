@@ -43,6 +43,10 @@ return packer.startup(function(use)
   use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install'}
   use 'windwp/nvim-autopairs'
   use 'numToStr/Comment.nvim'
+  use 'wakatime/vim-wakatime'
+  use 'tpope/vim-repeat'
+  use 'tpope/vim-surround'
+  use 'mattn/emmet-vim'
 
   -- Colorschemes
   use "lunarvim/colorschemes"
@@ -76,8 +80,6 @@ return packer.startup(function(use)
   }
   use 'p00f/nvim-ts-rainbow'
 
-  -- Wakatime
-  use 'wakatime/vim-wakatime'
 
   -- Commenting
   use "JoosepAlviste/nvim-ts-context-commentstring"
