@@ -40,14 +40,18 @@ return packer.startup(function(use)
   use "wbthomason/packer.nvim"
   use "nvim-lua/popup.nvim"
   use "nvim-lua/plenary.nvim"
-  use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install'}
+  use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', ft='markdown'}
   use 'windwp/nvim-autopairs'
   use 'numToStr/Comment.nvim'
   use 'wakatime/vim-wakatime'
   use 'tpope/vim-repeat'
   use 'tpope/vim-surround'
-  use 'mattn/emmet-vim'
+  use {
+        "mattn/emmet-vim",
+        ft = {"html","css","markdown","typescriptreact","javascriptreact"},
+  }
   use 'nvim-lualine/lualine.nvim'
+  use "lewis6991/impatient.nvim"
 
   -- Colorschemes
   use "lunarvim/colorschemes"

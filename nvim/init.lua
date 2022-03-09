@@ -12,3 +12,4 @@ require 'user.colorscheme'
 require 'user.nvim-tree'
 require 'user.null-ls'
 require 'user.lualine'
+require "user.impatient"

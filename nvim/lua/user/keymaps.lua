@@ -72,6 +72,6 @@ keymap("n", "<C-b>", "<cmd>Telescope buffers<cr>", term_opts)
 
 
 -- Emmet Config --
-vim.cmd 'let g:user_emmet_install_global = 0'
-vim.cmd 'autocmd FileType html,css EmmetInstall'
+-- vim.cmd 'let g:user_emmet_install_global = 0'
+-- vim.cmd 'autocmd FileType html,css,jsx,tsx EmmetInstall'
 vim.cmd "let g:user_emmet_leader_key=','"
