@@ -52,10 +52,13 @@ return packer.startup(function(use)
   }
   use 'nvim-lualine/lualine.nvim'
   use "lewis6991/impatient.nvim"
+  use "akinsho/toggleterm.nvim"
 
   -- Colorschemes
   use "lunarvim/colorschemes"
   use 'tiagovla/tokyodark.nvim'
+  use 'marko-cerovac/material.nvim'
+  use 'folke/tokyonight.nvim'
 
   -- cmp plugins
   use "hrsh7th/nvim-cmp"

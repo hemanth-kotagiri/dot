@@ -38,6 +38,7 @@ keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
 keymap("n", "<leader>m", ":MarkdownPreviewToggle<cr>", opts)
 keymap("n", "<leader>/", ":noh<cr>", opts)
 keymap("n", "<leader>f", ":Format<cr>", opts)
+keymap("n", "<leader><CR>", ":so %<CR>", opts)
 
 
 -- Insert --
