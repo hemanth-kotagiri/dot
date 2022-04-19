@@ -1,3 +1,4 @@
+require "user.impatient"
 require 'user.lsp'
 require 'user.cmp'
 require 'user.options'
@@ -12,5 +13,5 @@ require 'user.colorscheme'
 require 'user.nvim-tree'
 require 'user.null-ls'
 require 'user.lualine'
-require "user.impatient"
 require "user.toggle-term"
+require "user.escape"

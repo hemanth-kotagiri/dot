@@ -37,8 +37,9 @@ keymap("n", "<F5>",":setlocal spell!<CR>", opts)
 keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
 keymap("n", "<leader>m", ":MarkdownPreviewToggle<cr>", opts)
 keymap("n", "<leader>/", ":noh<cr>", opts)
-keymap("n", "<leader>f", ":Format<cr>", opts)
+keymap("n", "<leader>f", ":lua vim.lsp.buf.formatting()<cr>", opts)
 keymap("n", "<leader><CR>", ":so %<CR>", opts)
+
 
 
 -- Insert --

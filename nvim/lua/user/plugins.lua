@@ -40,19 +40,24 @@ return packer.startup(function(use)
   use "wbthomason/packer.nvim"
   use "nvim-lua/popup.nvim"
   use "nvim-lua/plenary.nvim"
-  use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', ft='markdown'}
+  use { 'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', ft = 'markdown' }
   use 'windwp/nvim-autopairs'
   use 'numToStr/Comment.nvim'
   use 'wakatime/vim-wakatime'
   use 'tpope/vim-repeat'
   use 'tpope/vim-surround'
   use {
-        "mattn/emmet-vim",
-        ft = {"html","css","markdown","typescriptreact","javascriptreact"},
+    "mattn/emmet-vim",
+    ft = { "html", "css", "markdown", "typescriptreact", "javascriptreact" },
   }
   use 'nvim-lualine/lualine.nvim'
   use "lewis6991/impatient.nvim"
   use "akinsho/toggleterm.nvim"
+  use "max397574/better-escape.nvim"
+  use {
+    "windwp/nvim-ts-autotag",
+    ft = { "html", "css", "markdown", "typescriptreact", "javascriptreact" },
+  }
 
   -- Colorschemes
   use "lunarvim/colorschemes"
