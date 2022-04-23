@@ -1,0 +1,9 @@
+xset r rate 210 40 &
+dwmblocks &
+picom &
+blueman-applet &
+redshift-gtk -l 28.704060:77.102493 &
+flameshot &
+wal -R &
+nm-applet &
+auto &
