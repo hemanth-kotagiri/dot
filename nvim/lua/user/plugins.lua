@@ -58,12 +58,14 @@ return packer.startup(function(use)
     "windwp/nvim-ts-autotag",
     ft = { "html", "css", "markdown", "typescriptreact", "javascriptreact" },
   }
+  use 'numToStr/Navigator.nvim'
 
   -- Colorschemes
   use "lunarvim/colorschemes"
   use 'tiagovla/tokyodark.nvim'
   use 'marko-cerovac/material.nvim'
   use 'folke/tokyonight.nvim'
+  use 'dylanaraps/wal.vim'
 
   -- cmp plugins
   use "hrsh7th/nvim-cmp"

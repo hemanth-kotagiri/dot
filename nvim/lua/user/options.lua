@@ -1,4 +1,5 @@
 local options = {
+  laststatus = 3,
   backup = false,
   clipboard = "unnamedplus",
   cmdheight = 2,
