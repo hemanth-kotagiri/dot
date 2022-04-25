@@ -47,8 +47,10 @@ I have two sets of configurations available for Neovim. One is written entirely
 in [VimScript](./old/nvim.init.vim). The other, is the one that I am currently
 using written in [Lua](./nvim).
 
-I use the Nightly build, so some features may not work if you install previous
-builds and intend to use my configuration. Make sure that you have Git installed.
+**I always use the latest Nightly build**, so some features may not work if you
+install previous builds/stable releases and intend to use my configuration.
+
+Make sure that you have Git installed.
 
 #### Lua
 
