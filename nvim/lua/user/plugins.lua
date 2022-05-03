@@ -66,6 +66,7 @@ return packer.startup(function(use)
   use 'marko-cerovac/material.nvim'
   use 'folke/tokyonight.nvim'
   use 'dylanaraps/wal.vim'
+  use 'ellisonleao/gruvbox.nvim'
 
   -- cmp plugins
   use "hrsh7th/nvim-cmp"

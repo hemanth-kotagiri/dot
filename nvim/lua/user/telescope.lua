@@ -78,6 +78,9 @@ telescope.setup {
     },
   },
   pickers = {
+    lsp_code_actions = {
+      theme = "dropdown"
+    }
     -- Default configuration for builtin pickers goes here:
     -- picker_name = {
     --   picker_config_key = value,
