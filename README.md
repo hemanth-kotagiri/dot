@@ -1,4 +1,4 @@
-![image](./image.png)
+![image](./Image.png)
 
 <p align="center">
     <img width=40 src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Archlinux-icon-crystal-64.svg/1024px-Archlinux-icon-crystal-64.svg.png">
