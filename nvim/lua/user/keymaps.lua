@@ -31,13 +31,14 @@ keymap("n", "<S-h>", ":bprevious<CR>", opts)
 keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
 keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
 
-keymap("n", "<F5>",":setlocal spell!<CR>", opts)
+keymap("n", "<F5>", ":setlocal spell!<CR>", opts)
 
 -- Leader Keymaps
 keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
 keymap("n", "<leader>m", ":MarkdownPreviewToggle<cr>", opts)
 keymap("n", "<leader>/", ":noh<cr>", opts)
 keymap("n", "<leader>f", ":lua vim.lsp.buf.formatting()<cr>", opts)
+keymap("n", "<leader><CR>", ":so ~/.config/nvim/init.lua<CR>", opts)
 
 
 

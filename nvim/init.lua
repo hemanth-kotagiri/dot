@@ -16,3 +16,4 @@ require "user.toggle-term"
 require "user.escape"
 require "user.navigator"
 require 'user.options'
+require 'user.bufferline'
