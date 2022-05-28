@@ -41,7 +41,7 @@
   "filterLinkHints": false,
   "waitForEnterForFilteredHints": true,
   "hideHud": false,
-  "keyMappings": "# Insert your preferred key mappings here.\nmap @ visitPreviousTab\nmap I LinkHints.activateModeToOpenIncognito\nmap W Vomnibar.activateInNewTab keyword=w\nmap Y Vomnibar.activateInNewTab keyword=y\nmap <a-,> moveTabLeft count=99\nmap <a-.> moveTabRight count=99",
+  "keyMappings": "# Insert your preferred key mappings here.\nmap @ visitPreviousTab\nmap I LinkHints.activateModeToOpenIncognito\nmap w Vomnibar.activateInNewTab keyword=w\nmap Y Vomnibar.activateInNewTab keyword=y\nmap <a-,> moveTabLeft count=99\nmap <a-.> moveTabRight count=99",
   "linkHintCharacters": "qwertasdfgzxcv",
   "linkHintNumbers": "0123456789",
   "newTabUrl": "about:newtab",
