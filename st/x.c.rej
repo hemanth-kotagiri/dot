@@ -1,0 +1,77 @@
+--- x.c
++++ x.c
+@@ -1531,40 +1531,44 @@ xdrawglyphfontspecs(const XftGlyphFontSpec *specs, Glyph base, int len, int x, i
+ 	if (base.mode & ATTR_INVISIBLE)
+ 		fg = bg;
+ 
+-	/* Intelligent cleaning up of the borders. */
+-	if (x == 0) {
+-		xclear(0, (y == 0)? 0 : winy, win.vborderpx,
+-			winy + win.ch +
+-			((winy + win.ch >= win.vborderpx + win.th)? win.h : 0));
+-	}
+-	if (winx + width >= win.hborderpx + win.tw) {
+-		xclear(winx + width, (y == 0)? 0 : winy, win.w,
+-			((winy + win.ch >= win.vborderpx + win.th)? win.h : (winy + win.ch)));
+-	}
+-	if (y == 0)
+-		xclear(winx, 0, winx + width, win.hborderpx);
+-	if (winy + win.ch >= win.vborderpx + win.th)
+-		xclear(winx, winy + win.ch, winx + width, win.h);
+-
+-	/* Clean up the region we want to draw to. */
+-	XftDrawRect(xw.draw, bg, winx, winy, width, win.ch);
++	if (dmode & DRAW_BG) {
++		/* Intelligent cleaning up of the borders. */
++		if (x == 0) {
++			xclear(0, (y == 0)? 0 : winy, win.vborderpx,
++					winy + win.ch +
++					((winy + win.ch >= win.vborderpx + win.th)? win.h : 0));
++		}
++		if (winx + width >= win.hborderpx + win.tw) {
++			xclear(winx + width, (y == 0)? 0 : winy, win.w,
++					((winy + win.ch >= win.vborderpx + win.th)? win.h : (winy + win.ch)));
++		}
++		if (y == 0)
++			xclear(winx, 0, winx + width, win.hborderpx);
++		if (winy + win.ch >= win.vborderpx + win.th)
++			xclear(winx, winy + win.ch, winx + width, win.h);
+ 
+-	if (base.mode & ATTR_BOXDRAW) {
+-		drawboxes(winx, winy, width / len, win.ch, fg, bg, specs, len);
+-	} else {
+-		/* Render the glyphs. */
+-		XftDrawGlyphFontSpec(xw.draw, fg, specs, len);
++		/* Fill the background */
++		XftDrawRect(xw.draw, bg, winx, winy, width, win.ch);
+ 	}
+ 
+-	/* Render underline and strikethrough. */
+-	if (base.mode & ATTR_UNDERLINE) {
+-		XftDrawRect(xw.draw, fg, winx, winy + win.cyo + dc.font.ascent + 1,
+-				width, 1);
+-	}
++	if (dmode & DRAW_FG) {
++		if (base.mode & ATTR_BOXDRAW) {
++			drawboxes(winx, winy, width / len, win.ch, fg, bg, specs, len);
++		} else {
++			/* Render the glyphs. */
++			XftDrawGlyphFontSpec(xw.draw, fg, specs, len);
++		}
+ 
+-	if (base.mode & ATTR_STRUCK) {
+-		XftDrawRect(xw.draw, fg, winx, winy + win.cyo + 2 * dc.font.ascent / 3,
+-				width, 1);
++		/* Render underline and strikethrough. */
++		if (base.mode & ATTR_UNDERLINE) {
++			XftDrawRect(xw.draw, fg, winx, winy + win.cyo + dc.font.ascent + 1,
++					width, 1);
++		}
++
++		if (base.mode & ATTR_STRUCK) {
++			XftDrawRect(xw.draw, fg, winx, winy + win.cyo + 2 * dc.font.ascent / 3,
++					width, 1);
++		}
+ 	}
+ }
+ 
