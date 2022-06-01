@@ -1,5 +1,16 @@
---- dwm.c
-+++ dwm.c
+From 9102fdb9c670218373bbe83c891c8e8138d6a6f4 Mon Sep 17 00:00:00 2001
+From: redacted <redacted@example.com>
+Date: Tue, 23 Apr 2019 00:39:27 +0100
+Subject: [PATCH] added noborder patch
+
+---
+ dwm.c | 7 +++++++
+ 1 file changed, 7 insertions(+)
+
+diff --git a/dwm.c b/dwm.c
+index 4465af1..685eca1 100644
+--- a/dwm.c
++++ b/dwm.c
 @@ -1282,6 +1282,13 @@ resizeclient(Client *c, int x, int y, int w, int h)
  	c->oldw = c->w; c->w = wc.width = w;
  	c->oldh = c->h; c->h = wc.height = h;
@@ -14,3 +25,6 @@
  	XConfigureWindow(dpy, c->win, CWX|CWY|CWWidth|CWHeight|CWBorderWidth, &wc);
  	configure(c);
  	XSync(dpy, False);
+-- 
+2.21.0
+
