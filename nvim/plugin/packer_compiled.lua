@@ -9,23 +9,26 @@ vim.api.nvim_command('packadd packer.nvim')
 
 local no_errors, error_msg = pcall(function()
 
-  local time
-  local profile_info
-  local should_profile = false
-  if should_profile then
-    local hrtime = vim.loop.hrtime
-    profile_info = {}
-    time = function(chunk, start)
-      if start then
-        profile_info[chunk] = hrtime()
-      else
-        profile_info[chunk] = (hrtime() - profile_info[chunk]) / 1e6
-      end
+_G._packer = _G._packer or {}
+_G._packer.inside_compile = true
+
+local time
+local profile_info
+local should_profile = false
+if should_profile then
+  local hrtime = vim.loop.hrtime
+  profile_info = {}
+  time = function(chunk, start)
+    if start then
+      profile_info[chunk] = hrtime()
+    else
+      profile_info[chunk] = (hrtime() - profile_info[chunk]) / 1e6
     end
-  else
-    time = function(chunk, start) end
   end
-  
+else
+  time = function(chunk, start) end
+end
+
 local function save_profiles(threshold)
   local sorted_times = {}
   for chunk_name, time_taken in pairs(profile_info) do
@@ -38,8 +41,10 @@ local function save_profiles(threshold)
       results[i] = elem[1] .. ' took ' .. elem[2] .. 'ms'
     end
   end
+  if threshold then
+    table.insert(results, '(Only showing plugins that took longer than ' .. threshold .. ' ms ' .. 'to load)')
+  end
 
-  _G._packer = _G._packer or {}
   _G._packer.profile_output = results
 end
 
@@ -89,10 +94,20 @@ _G.packer_plugins = {
     path = "/home/hemanth/.local/share/nvim/site/pack/packer/start/better-escape.nvim",
     url = "https://github.com/max397574/better-escape.nvim"
   },
+  ["blue-moon"] = {
+    loaded = true,
+    path = "/home/hemanth/.local/share/nvim/site/pack/packer/start/blue-moon",
+    url = "https://github.com/kyazdani42/blue-moon"
+  },
   ["bufferline.nvim"] = {
     loaded = true,
     path = "/home/hemanth/.local/share/nvim/site/pack/packer/start/bufferline.nvim",
     url = "https://github.com/akinsho/bufferline.nvim"
+  },
+  catppuccin = {
+    loaded = true,
+    path = "/home/hemanth/.local/share/nvim/site/pack/packer/start/catppuccin",
+    url = "https://github.com/catppuccin/nvim"
   },
   ["cmp-buffer"] = {
     loaded = true,
@@ -124,10 +139,21 @@ _G.packer_plugins = {
     path = "/home/hemanth/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
+  ["colorbuddy.vim"] = {
+    loaded = true,
+    path = "/home/hemanth/.local/share/nvim/site/pack/packer/start/colorbuddy.vim",
+    url = "https://github.com/tjdevries/colorbuddy.vim"
+  },
   colorschemes = {
     loaded = true,
     path = "/home/hemanth/.local/share/nvim/site/pack/packer/start/colorschemes",
     url = "https://github.com/lunarvim/colorschemes"
+  },
+  ["document-color.nvim"] = {
+    config = { "\27LJ\2\nS\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\1\tmode\15background\nsetup\19document-color\frequire\0" },
+    loaded = true,
+    path = "/home/hemanth/.local/share/nvim/site/pack/packer/start/document-color.nvim",
+    url = "https://github.com/mrshmllow/document-color.nvim"
   },
   ["emmet-vim"] = {
     loaded = false,
@@ -141,6 +167,11 @@ _G.packer_plugins = {
     path = "/home/hemanth/.local/share/nvim/site/pack/packer/start/friendly-snippets",
     url = "https://github.com/rafamadriz/friendly-snippets"
   },
+  ["github-nvim-theme"] = {
+    loaded = true,
+    path = "/home/hemanth/.local/share/nvim/site/pack/packer/start/github-nvim-theme",
+    url = "https://github.com/projekt0n/github-nvim-theme"
+  },
   ["gitsigns.nvim"] = {
     loaded = true,
     path = "/home/hemanth/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
@@ -151,10 +182,25 @@ _G.packer_plugins = {
     path = "/home/hemanth/.local/share/nvim/site/pack/packer/start/gruvbox.nvim",
     url = "https://github.com/ellisonleao/gruvbox.nvim"
   },
+  ["gruvbuddy.nvim"] = {
+    loaded = true,
+    path = "/home/hemanth/.local/share/nvim/site/pack/packer/start/gruvbuddy.nvim",
+    url = "https://github.com/tjdevries/gruvbuddy.nvim"
+  },
   ["impatient.nvim"] = {
     loaded = true,
     path = "/home/hemanth/.local/share/nvim/site/pack/packer/start/impatient.nvim",
     url = "https://github.com/lewis6991/impatient.nvim"
+  },
+  ["jellybeans.vim"] = {
+    loaded = true,
+    path = "/home/hemanth/.local/share/nvim/site/pack/packer/start/jellybeans.vim",
+    url = "https://github.com/nanotech/jellybeans.vim"
+  },
+  ["kanagawa.nvim"] = {
+    loaded = true,
+    path = "/home/hemanth/.local/share/nvim/site/pack/packer/start/kanagawa.nvim",
+    url = "https://github.com/rebelot/kanagawa.nvim"
   },
   ["lualine.nvim"] = {
     loaded = true,
@@ -173,6 +219,11 @@ _G.packer_plugins = {
     path = "/home/hemanth/.local/share/nvim/site/pack/packer/start/material.nvim",
     url = "https://github.com/marko-cerovac/material.nvim"
   },
+  neon = {
+    loaded = true,
+    path = "/home/hemanth/.local/share/nvim/site/pack/packer/start/neon",
+    url = "https://github.com/rafamadriz/neon"
+  },
   ["nlsp-settings.nvim"] = {
     loaded = true,
     path = "/home/hemanth/.local/share/nvim/site/pack/packer/start/nlsp-settings.nvim",
@@ -188,10 +239,25 @@ _G.packer_plugins = {
     path = "/home/hemanth/.local/share/nvim/site/pack/packer/start/nvim-autopairs",
     url = "https://github.com/windwp/nvim-autopairs"
   },
+  ["nvim-cheat.sh"] = {
+    loaded = true,
+    path = "/home/hemanth/.local/share/nvim/site/pack/packer/start/nvim-cheat.sh",
+    url = "https://github.com/RishabhRD/nvim-cheat.sh"
+  },
   ["nvim-cmp"] = {
     loaded = true,
     path = "/home/hemanth/.local/share/nvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
+  },
+  ["nvim-colorizer.lua"] = {
+    loaded = true,
+    path = "/home/hemanth/.local/share/nvim/site/pack/packer/start/nvim-colorizer.lua",
+    url = "https://github.com/norcalli/nvim-colorizer.lua"
+  },
+  ["nvim-dap"] = {
+    loaded = true,
+    path = "/home/hemanth/.local/share/nvim/site/pack/packer/start/nvim-dap",
+    url = "https://github.com/mfussenegger/nvim-dap"
   },
   ["nvim-lsp-installer"] = {
     loaded = true,
@@ -203,6 +269,11 @@ _G.packer_plugins = {
     path = "/home/hemanth/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
   },
+  ["nvim-rdark"] = {
+    loaded = true,
+    path = "/home/hemanth/.local/share/nvim/site/pack/packer/start/nvim-rdark",
+    url = "https://github.com/RishabhRD/nvim-rdark"
+  },
   ["nvim-tree.lua"] = {
     loaded = true,
     path = "/home/hemanth/.local/share/nvim/site/pack/packer/start/nvim-tree.lua",
@@ -212,6 +283,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/hemanth/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
+  },
+  ["nvim-treesitter-context"] = {
+    loaded = true,
+    path = "/home/hemanth/.local/share/nvim/site/pack/packer/start/nvim-treesitter-context",
+    url = "https://github.com/nvim-treesitter/nvim-treesitter-context"
   },
   ["nvim-ts-autotag"] = {
     loaded = false,
@@ -230,6 +306,11 @@ _G.packer_plugins = {
     path = "/home/hemanth/.local/share/nvim/site/pack/packer/start/nvim-ts-rainbow",
     url = "https://github.com/p00f/nvim-ts-rainbow"
   },
+  ["nvim-tundra"] = {
+    loaded = true,
+    path = "/home/hemanth/.local/share/nvim/site/pack/packer/start/nvim-tundra",
+    url = "https://github.com/sam4llis/nvim-tundra"
+  },
   ["nvim-web-devicons"] = {
     loaded = true,
     path = "/home/hemanth/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
@@ -240,10 +321,20 @@ _G.packer_plugins = {
     path = "/home/hemanth/.local/share/nvim/site/pack/packer/start/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
   },
+  playground = {
+    loaded = true,
+    path = "/home/hemanth/.local/share/nvim/site/pack/packer/start/playground",
+    url = "https://github.com/nvim-treesitter/playground"
+  },
   ["plenary.nvim"] = {
     loaded = true,
     path = "/home/hemanth/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
+  },
+  popfix = {
+    loaded = true,
+    path = "/home/hemanth/.local/share/nvim/site/pack/packer/start/popfix",
+    url = "https://github.com/RishabhRD/popfix"
   },
   ["popup.nvim"] = {
     loaded = true,
@@ -298,17 +389,28 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: document-color.nvim
+time([[Config for document-color.nvim]], true)
+try_loadstring("\27LJ\2\nS\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\1\tmode\15background\nsetup\19document-color\frequire\0", "config", "document-color.nvim")
+time([[Config for document-color.nvim]], false)
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Filetype lazy-loads
 time([[Defining lazy-load filetype autocommands]], true)
-vim.cmd [[au FileType html ++once lua require("packer.load")({'nvim-ts-autotag', 'emmet-vim'}, { ft = "html" }, _G.packer_plugins)]]
-vim.cmd [[au FileType javascriptreact ++once lua require("packer.load")({'nvim-ts-autotag', 'emmet-vim'}, { ft = "javascriptreact" }, _G.packer_plugins)]]
-vim.cmd [[au FileType css ++once lua require("packer.load")({'nvim-ts-autotag', 'emmet-vim'}, { ft = "css" }, _G.packer_plugins)]]
-vim.cmd [[au FileType typescriptreact ++once lua require("packer.load")({'nvim-ts-autotag', 'emmet-vim'}, { ft = "typescriptreact" }, _G.packer_plugins)]]
-vim.cmd [[au FileType markdown ++once lua require("packer.load")({'nvim-ts-autotag', 'markdown-preview.nvim', 'emmet-vim'}, { ft = "markdown" }, _G.packer_plugins)]]
+vim.cmd [[au FileType css ++once lua require("packer.load")({'emmet-vim', 'nvim-ts-autotag'}, { ft = "css" }, _G.packer_plugins)]]
+vim.cmd [[au FileType html ++once lua require("packer.load")({'emmet-vim', 'nvim-ts-autotag'}, { ft = "html" }, _G.packer_plugins)]]
+vim.cmd [[au FileType markdown ++once lua require("packer.load")({'emmet-vim', 'markdown-preview.nvim', 'nvim-ts-autotag'}, { ft = "markdown" }, _G.packer_plugins)]]
+vim.cmd [[au FileType javascriptreact ++once lua require("packer.load")({'emmet-vim', 'nvim-ts-autotag'}, { ft = "javascriptreact" }, _G.packer_plugins)]]
+vim.cmd [[au FileType typescriptreact ++once lua require("packer.load")({'emmet-vim', 'nvim-ts-autotag'}, { ft = "typescriptreact" }, _G.packer_plugins)]]
 time([[Defining lazy-load filetype autocommands]], false)
 vim.cmd("augroup END")
+
+_G._packer.inside_compile = false
+if _G._packer.needs_bufread == true then
+  vim.cmd("doautocmd BufRead")
+end
+_G._packer.needs_bufread = false
+
 if should_profile then save_profiles() end
 
 end)

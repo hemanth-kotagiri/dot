@@ -17,3 +17,5 @@ require "user.escape"
 require "user.navigator"
 require 'user.options'
 require 'user.bufferline'
+require 'user.colorizer'
+require 'user.context'

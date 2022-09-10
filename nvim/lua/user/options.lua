@@ -1,5 +1,4 @@
 local options = {
-  laststatus = 3,
   backup = false,
   clipboard = "unnamedplus",
   cmdheight = 2,
@@ -24,7 +23,7 @@ local options = {
   expandtab = true,
   shiftwidth = 2,
   tabstop = 2,
-  cursorline = true,
+  cursorline = false,
   number = true,
   relativenumber = true,
   numberwidth = 4,
@@ -33,20 +32,22 @@ local options = {
   scrolloff = 8,
   sidescrolloff = 8,
   guifont = "monospace:h17",
-  background = "dark"
+  background = "dark",
+  guicursor = "n-v-c-i:block",
 }
 
-vim.opt.shortmess:append "c"
+vim.opt.shortmess:append("c")
 
 for k, v in pairs(options) do
   vim.opt[k] = v
 end
 
-vim.cmd "set whichwrap+=<,>,[,],h,l"
-vim.cmd [[set iskeyword+=-]]
+vim.cmd("set whichwrap+=<,>,[,],h,l")
+vim.cmd([[set iskeyword+=-]])
+vim.opt.laststatus = 3 -- global status line
 
 -- Spelling mistakes will be colored up red.
-vim.cmd "hi SpellBad cterm=underline ctermfg=203 guifg=#ff5f5f"
-vim.cmd "hi SpellLocal cterm=underline ctermfg=203 guifg=#ff5f5f"
-vim.cmd "hi SpellRare cterm=underline ctermfg=203 guifg=#ff5f5f"
-vim.cmd "hi SpellCap cterm=underline ctermfg=203 guifg=#ff5f5f"
+vim.cmd("hi SpellBad cterm=underline ctermfg=203 guifg=#ff5f5f")
+vim.cmd("hi SpellLocal cterm=underline ctermfg=203 guifg=#ff5f5f")
+vim.cmd("hi SpellRare cterm=underline ctermfg=203 guifg=#ff5f5f")
+vim.cmd("hi SpellCap cterm=underline ctermfg=203 guifg=#ff5f5f")

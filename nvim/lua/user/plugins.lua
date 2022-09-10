@@ -60,6 +60,10 @@ return packer.startup(function(use)
   }
   use 'numToStr/Navigator.nvim'
   use 'akinsho/bufferline.nvim'
+  use {'RishabhRD/nvim-cheat.sh'}
+  use 'RishabhRD/popfix'
+  use 'nvim-treesitter/nvim-treesitter-context'
+  use 'mfussenegger/nvim-dap'
 
   -- Colorschemes
   use "lunarvim/colorschemes"
@@ -68,6 +72,24 @@ return packer.startup(function(use)
   use 'folke/tokyonight.nvim'
   use 'dylanaraps/wal.vim'
   use 'ellisonleao/gruvbox.nvim'
+  use 'rebelot/kanagawa.nvim'
+  use 'nanotech/jellybeans.vim'
+  use { "catppuccin/nvim", as = "catppuccin" }
+  use 'projekt0n/github-nvim-theme'
+  use 'kyazdani42/blue-moon'
+  use 'tjdevries/colorbuddy.vim'
+  use 'RishabhRD/nvim-rdark'
+  use 'norcalli/nvim-colorizer.lua'
+  use { 'mrshmllow/document-color.nvim', config = function()
+  require("document-color").setup {
+    -- Default options
+    mode = "background", -- "background" | "foreground" | "single"
+  }
+  end
+}
+  use 'tjdevries/gruvbuddy.nvim'
+  use 'sam4llis/nvim-tundra'
+  use 'rafamadriz/neon'
 
   -- cmp plugins
   use "hrsh7th/nvim-cmp"
@@ -90,7 +112,7 @@ return packer.startup(function(use)
 
   -- Telescope
   use "nvim-telescope/telescope.nvim"
-  use {'nvim-telescope/telescope-ui-select.nvim' }
+  use { 'nvim-telescope/telescope-ui-select.nvim' }
 
   -- Treesitter
   use {
@@ -98,6 +120,7 @@ return packer.startup(function(use)
     run = ":TSUpdate",
   }
   use 'p00f/nvim-ts-rainbow'
+  use 'nvim-treesitter/playground'
 
 
   -- Commenting

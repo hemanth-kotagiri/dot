@@ -3,7 +3,7 @@ if not status_ok then
   return
 end
 
-configs.setup {
+configs.setup({
   ensure_installed = "all",
   sync_install = false,
   ignore_install = { "" },
@@ -15,7 +15,7 @@ configs.setup {
     disable = { "" },
     additional_vim_regex_highlighting = true,
   },
-  indent = { enable = true, disable = { "yaml" } },
+  indent = { enable = true, disable = { "yaml", "python" } },
   context_commentstring = {
     enable = true,
     enable_autocmd = false,
@@ -30,5 +30,5 @@ configs.setup {
   },
   autotag = {
     enable = true,
-  }
-}
+  },
+})

@@ -46,7 +46,7 @@ end
 
 local function lsp_highlight_document(client)
   -- Set autocommands conditional on server_capabilities
-  if client.resolved_capabilities.document_highlight then
+  if client.server_capabilities.document_highlight then
     vim.api.nvim_exec(
       [[
       augroup lsp_document_highlight
@@ -54,7 +54,7 @@ local function lsp_highlight_document(client)
         autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
         autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
       augroup END
-    ]],
+    ]] ,
       false
     )
   end
@@ -80,12 +80,16 @@ local function lsp_keymaps(bufnr)
   )
   vim.api.nvim_buf_set_keymap(bufnr, "n", "]d", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
-  vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
+  vim.cmd([[ command! Format execute 'lua vim.lsp.buf.formatting()' ]])
 end
 
 M.on_attach = function(client, bufnr)
   if client.name == "tsserver" then
-    client.resolved_capabilities.document_formatting = false
+    client.server_capabilities.document_formatting = false
+  end
+  if client.server_capabilities.colorProvider then
+    -- Attach document colour support
+    require("document-color").buf_attach(bufnr)
   end
   lsp_keymaps(bufnr)
   lsp_highlight_document(client)

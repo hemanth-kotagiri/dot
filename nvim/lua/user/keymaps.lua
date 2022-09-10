@@ -32,15 +32,14 @@ keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
 keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
 
 keymap("n", "<F5>", ":setlocal spell!<CR>", opts)
+keymap("n", "<leader>db", ":bdelete<CR>", opts)
 
 -- Leader Keymaps
 keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
 keymap("n", "<leader>m", ":MarkdownPreviewToggle<cr>", opts)
 keymap("n", "<leader>/", ":noh<cr>", opts)
-keymap("n", "<leader>f", ":lua vim.lsp.buf.formatting()<cr>", opts)
-keymap("n", "<leader><CR>", ":so ~/.config/nvim/init.lua<CR>", opts)
-
-
+keymap("n", "<leader>f", ":lua vim.lsp.buf.format({async = true})<cr>", opts)
+keymap("n", "<leader><CR>", ":so %<CR>", opts)
 
 -- Insert --
 keymap("i", "jk", "<ESC>", opts)
@@ -68,12 +67,15 @@ keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
 keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 
 -- Telescope --
-keymap("n", "<C-f>", "<cmd>Telescope find_files<cr>", term_opts)
+keymap("n", "<C-f>", "<cmd>Telescope find_files hidden=true<cr>", term_opts)
 keymap("n", "<C-t>", "<cmd>Telescope live_grep<cr>", term_opts)
 keymap("n", "<C-b>", "<cmd>Telescope buffers<cr>", term_opts)
+keymap("n", "<leader>bf", "<cmd>Telescope current_buffer_fuzzy_find<cr>", term_opts)
 
+-- CHEAT --
+keymap("n", "<leader>c", "<cmd>Cheat<cr>", term_opts)
 
 -- Emmet Config --
 -- vim.cmd 'let g:user_emmet_install_global = 0'
 -- vim.cmd 'autocmd FileType html,css,jsx,tsx EmmetInstall'
-vim.cmd "let g:user_emmet_leader_key=','"
+vim.cmd("let g:user_emmet_leader_key=','")
