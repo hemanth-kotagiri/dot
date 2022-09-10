@@ -4,6 +4,7 @@ picom &
 blueman-applet &
 redshift-gtk -l 28.704060:77.102493 &
 flameshot &
+syncthing --no-browser &
 wal -R &
 nm-applet &
-auto &
+kdeconnect-indicator &
