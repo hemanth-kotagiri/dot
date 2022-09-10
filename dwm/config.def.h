@@ -104,6 +104,7 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon , "-fn", dmenufont};
 static const char *termcmd[]  = { "st", NULL };
 static const char *brave[]  = { "brave", NULL };
+static const char *firefox[]  = { "firefox", NULL };
 static const char *emoji_launcher[]  = { "rofi", "-show", "emoji", NULL };
 static const char *rofi_window[]  = { "rofi", "-show", "window", NULL };
 static const char *naut[]  = { "nautilus", NULL };
@@ -111,6 +112,7 @@ static const char *shutdown_menu[]  = { "shutdown_menu", NULL };
 static const char *notion[]  = { "notion-app-enhanced", NULL };
 static const char *signal_app[]  = { "signal-desktop", NULL };
 static const char *auto_launch_script[] = {"auto", NULL};
+static const char *obsidian[] = {"obsidian", NULL};
 
 /* Volume control */
 static const char *upvol[]   = { "amixer", "-D", "pulse",  "sset","Master", "5%+",     NULL };
@@ -125,7 +127,7 @@ static const char *books[] = { "tdrop", "-am", "-w", "70%", "-h", "70%", "-y", "
 static const char *btech[] = { "tdrop", "-am", "-w", "70%", "-h", "70%", "-y", "15%", "-x", "15%", "-n", "1", "st", "-c", "floating", "-e", "ranger", "/media/volume/B.Tech-Docs", NULL};
 static const char *downl[] = { "tdrop", "-am", "-w", "70%", "-h", "70%", "-y", "15%", "-x", "15%", "-n", "2", "st", "-c", "floating", "-e", "ranger", "/home/hemanth/Downloads/", NULL};
 static const char *docs[] = { "tdrop", "-am", "-w", "70%", "-h", "70%", "-y", "15%", "-x", "15%", "-n", "3", "st", "-c", "floating", "-e", "ranger", "/home/hemanth/Documents/", NULL};
-static const char *float_term[] = { "tdrop", "-am", "-w", "70%", "-h", "70%", "-y", "15%", "-x", "15%", "-n", "4", "st", "-c", "floating", NULL};
+static const char *float_term[] = { "tdrop", "-am", "-w", "70%", "-h", "70%", "-y", "15%", "-x", "15%", "-n", "4", "st", "-c", "floating", "-e", "tmux", NULL};
 static const char *music[] = {"tdrop", "-am", "-w", "70%", "-h", "70%", "-y", "15%", "-x", "15%", "-n", "5", "chromium", "--new-window", "--app=https://music.youtube.com", "--class=music", NULL};
 static const char *spotify[] = {"tdrop", "-am", "-w", "70%", "-h", "70%", "-y", "15%", "-x", "15%", "-n", "6", "chromium", "--new-window", "--app=https://open.spotify.com", "--class=spot", NULL};
 static const char *wa[] = {"tdrop", "-am", "-w", "70%", "-h", "80%", "-y", "10%", "-x", "15%", "-n", "7", "chromium", "--new-window", "--app=https://web.whatsapp.com", "--class=wa", NULL};
@@ -156,12 +158,13 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_n,      spawn,          {.v = notion } },
 	{ Mod1Mask|MODKEY,              XK_a,      spawn,          {.v = auto_launch_script } },
 	{ MODKEY,                       XK_w,      spawn,          {.v = rofi_window } },
+	{ MODKEY,                       XK_o,      spawn,          {.v = obsidian } },
 	// DEFAULTS
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
   { MODKEY|ControlMask,           XK_space,  focusmaster,    {0} },
 	{ MODKEY,                       XK_n,      shiftview,      {.i = -1 }},
 	{ MODKEY,                       XK_p,      shiftview,      {.i = +1 }},
-	{ MODKEY,                       XK_b,      spawn,          {.v = brave }},
+	{ MODKEY,                       XK_b,      spawn,          {.v = firefox }},
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, zoom,           {0} },
 	{ Mod1Mask|MODKEY,              XK_u,      incrgaps,       {.i = +1 } },
