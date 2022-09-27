@@ -274,6 +274,11 @@ _G.packer_plugins = {
     path = "/home/hemanth/.local/share/nvim/site/pack/packer/start/nvim-rdark",
     url = "https://github.com/RishabhRD/nvim-rdark"
   },
+  ["nvim-transparent"] = {
+    loaded = true,
+    path = "/home/hemanth/.local/share/nvim/site/pack/packer/start/nvim-transparent",
+    url = "https://github.com/xiyaowong/nvim-transparent"
+  },
   ["nvim-tree.lua"] = {
     loaded = true,
     path = "/home/hemanth/.local/share/nvim/site/pack/packer/start/nvim-tree.lua",
@@ -399,9 +404,9 @@ vim.cmd [[au!]]
 time([[Defining lazy-load filetype autocommands]], true)
 vim.cmd [[au FileType css ++once lua require("packer.load")({'emmet-vim', 'nvim-ts-autotag'}, { ft = "css" }, _G.packer_plugins)]]
 vim.cmd [[au FileType html ++once lua require("packer.load")({'emmet-vim', 'nvim-ts-autotag'}, { ft = "html" }, _G.packer_plugins)]]
-vim.cmd [[au FileType markdown ++once lua require("packer.load")({'emmet-vim', 'markdown-preview.nvim', 'nvim-ts-autotag'}, { ft = "markdown" }, _G.packer_plugins)]]
-vim.cmd [[au FileType javascriptreact ++once lua require("packer.load")({'emmet-vim', 'nvim-ts-autotag'}, { ft = "javascriptreact" }, _G.packer_plugins)]]
 vim.cmd [[au FileType typescriptreact ++once lua require("packer.load")({'emmet-vim', 'nvim-ts-autotag'}, { ft = "typescriptreact" }, _G.packer_plugins)]]
+vim.cmd [[au FileType javascriptreact ++once lua require("packer.load")({'emmet-vim', 'nvim-ts-autotag'}, { ft = "javascriptreact" }, _G.packer_plugins)]]
+vim.cmd [[au FileType markdown ++once lua require("packer.load")({'emmet-vim', 'markdown-preview.nvim', 'nvim-ts-autotag'}, { ft = "markdown" }, _G.packer_plugins)]]
 time([[Defining lazy-load filetype autocommands]], false)
 vim.cmd("augroup END")
 

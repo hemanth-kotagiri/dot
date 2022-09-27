@@ -1,7 +1,7 @@
 local options = {
   backup = false,
   clipboard = "unnamedplus",
-  cmdheight = 2,
+  cmdheight = 1,
   completeopt = { "menuone", "noselect" },
   conceallevel = 0,
   fileencoding = "utf-8",
@@ -46,8 +46,24 @@ vim.cmd("set whichwrap+=<,>,[,],h,l")
 vim.cmd([[set iskeyword+=-]])
 vim.opt.laststatus = 3 -- global status line
 
--- Spelling mistakes will be colored up red.
+--[[ Spelling mistakes will be colored up red. ]]
 vim.cmd("hi SpellBad cterm=underline ctermfg=203 guifg=#ff5f5f")
 vim.cmd("hi SpellLocal cterm=underline ctermfg=203 guifg=#ff5f5f")
 vim.cmd("hi SpellRare cterm=underline ctermfg=203 guifg=#ff5f5f")
 vim.cmd("hi SpellCap cterm=underline ctermfg=203 guifg=#ff5f5f")
+
+local augroup = vim.api.nvim_create_augroup
+HemanthGroup = augroup("Hemanth", {})
+local autocmd = vim.api.nvim_create_autocmd
+local yank_group = augroup("HighlightYank", {})
+
+autocmd("TextYankPost", {
+  group = yank_group,
+  pattern = "*",
+  callback = function()
+    vim.highlight.on_yank({
+      higroup = "IncSearch",
+      timeout = 40,
+    })
+  end,
+})

@@ -16,11 +16,11 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 vim.cmd [[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerSync
-  augroup end
-]]
+   augroup packer_user_config
+     autocmd!
+     autocmd BufWritePost plugins.lua source <afile> | PackerSync
+   augroup end
+ ]]
 
 local status_ok, packer = pcall(require, "packer")
 if not status_ok then
@@ -64,6 +64,7 @@ return packer.startup(function(use)
   use 'RishabhRD/popfix'
   use 'nvim-treesitter/nvim-treesitter-context'
   use 'mfussenegger/nvim-dap'
+  use 'xiyaowong/nvim-transparent'
 
   -- Colorschemes
   use "lunarvim/colorschemes"
