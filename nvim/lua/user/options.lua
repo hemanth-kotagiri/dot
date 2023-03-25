@@ -34,6 +34,8 @@ local options = {
   guifont = "monospace:h17",
   background = "dark",
   guicursor = "n-v-c-i:block",
+  autoindent = true,
+  textwidth = 80,
 }
 
 vim.opt.shortmess:append("c")

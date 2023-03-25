@@ -67,7 +67,6 @@ return packer.startup(function(use)
   use 'xiyaowong/nvim-transparent'
 
   -- Colorschemes
-  use "lunarvim/colorschemes"
   use 'tiagovla/tokyodark.nvim'
   use 'marko-cerovac/material.nvim'
   use 'folke/tokyonight.nvim'
@@ -81,6 +80,7 @@ return packer.startup(function(use)
   use 'tjdevries/colorbuddy.vim'
   use 'RishabhRD/nvim-rdark'
   use 'norcalli/nvim-colorizer.lua'
+  use 'lunarvim/lunar.nvim'
   use { 'mrshmllow/document-color.nvim', config = function()
   require("document-color").setup {
     -- Default options
@@ -91,6 +91,8 @@ return packer.startup(function(use)
   use 'tjdevries/gruvbuddy.nvim'
   use 'sam4llis/nvim-tundra'
   use 'rafamadriz/neon'
+  use 'https://gitlab.com/madyanov/gruber.vim'
+  use "ishan9299/nvim-solarized-lua"
 
   -- cmp plugins
   use "hrsh7th/nvim-cmp"

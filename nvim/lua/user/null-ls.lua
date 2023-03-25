@@ -12,11 +12,11 @@ local formatting = null_ls.builtins.formatting
 -- https://github.com/prettier-solidity/prettier-plugin-solidity
 -- npm install --save-dev prettier prettier-plugin-solidity
 null_ls.setup({
-  debug = true,
+  debug = false,
   sources = {
     formatting.prettierd.with({
       extra_filetypes = { "toml", "solidity", "typescriptreact" },
-      extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote", "--print-width=80" },
+      extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" },
     }),
     formatting.black.with({ extra_args = { "--fast" } }),
     formatting.stylua,

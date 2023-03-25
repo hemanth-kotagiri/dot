@@ -1,33 +1,40 @@
-local colorscheme = "darkplus"
+local colorscheme = "gruvbox"
+
+if colorscheme == "gruvbox" then
+	vim.o.background = "dark"
+end
 
 if colorscheme == "tokyonight" then
-  vim.g.tokyonight_style = "night"
+	vim.g.tokyonight_style = "night"
 end
 
 if colorscheme == "material" then
-  vim.g.material_style = "deep ocean"
+	--[[ vim.g.material_style = "palenight" ]]
+	--[[ vim.g.material_style = "darker" ]]
+	vim.g.material_style = "deep ocean"
 end
 
 if colorscheme == "neon" then
-  vim.g.neon_style = "dark"
+	vim.g.neon_style = "dark"
 end
 
 if colorscheme == "catppuccin" then
-  vim.g.catppuccin_flavour = "mocha"
+	vim.g.catppuccin_flavour = "mocha"
 end
 
 if colorscheme == "neon" then
-  vim.g.neon_style = "dark"
-  vim.g.neon_italic_keyword = true
-  vim.g.neon_italic_function = true
-  vim.g.neon_transparent = true
+	vim.g.neon_style = "dark"
+	vim.g.neon_italic_keyword = true
+	vim.g.neon_italic_function = true
+	vim.g.neon_transparent = false
 end
 
 local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
 
 if not status_ok then
-  vim.notify("colorscheme " .. colorscheme .. " not found!")
-  return
+	vim.notify("colorscheme " .. colorscheme .. " not found!")
+	return
 end
 
--- require('colorbuddy').colorscheme('gruvbuddy')
+--[[ require('colorbuddy').colorscheme('nvim-rdark') ]]
+--[[ require('colorbuddy').colorscheme('gruvbuddy') ]]

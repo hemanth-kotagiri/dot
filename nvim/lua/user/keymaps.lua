@@ -37,7 +37,7 @@ keymap("n", "<leader>db", ":bdelete<CR>", opts)
 -- Leader Keymaps
 keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
 keymap("n", "<leader>m", ":MarkdownPreviewToggle<cr>", opts)
-keymap("n", "<leader>/", ":noh<cr>", opts)
+keymap("n", "//", ":noh<cr>", opts)
 keymap("n", "<leader>f", ":lua vim.lsp.buf.format({async = true})<cr>", opts)
 keymap("n", "<leader><CR>", ":so %<CR>", opts)
 
