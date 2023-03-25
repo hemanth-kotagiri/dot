@@ -1,45 +1,23 @@
-background_opacity: 0.8
-
-# Colors
-colors:
-  # Default colors
-  primary:
-    background: "#011627"
-    foreground: "#acb4c2"
-    bright_foreground: "#eeeeee"
-
-  # Cursor colors
-  cursor:
-    text: "#080808"
-    cursor: "#9ca1aa"
-
-  # Selection colors
-  selection:
-    text: "#080808"
-    background: "#b2ceee"
-
-  # Normal colors
+window:
+  opacity: 0.8
+font:
   normal:
-    black: "#1d3b53"
-    red: "#fc514e"
-    green: "#a1cd5e"
-    yellow: "#e3d18a"
-    blue: "#82aaff"
-    magenta: "#c792ea"
-    cyan: "#7fdbca"
-    white: "#a1aab8"
+    family: Hack
+    style: Regular
 
-  # Bright colors
-  bright:
-    black: "#7c8f8f"
-    red: "#ff5874"
-    green: "#21c7a8"
-    yellow: "#ecc48d"
-    blue: "#82aaff"
-    magenta: "#ae81ff"
-    cyan: "#7fdbca"
-    white: "#d6deeb"
+  bold:
+    family: Hack
+    style: Bold
 
+  italic:
+    family: Hack
+    style: Italic
+
+  bold_italic:
+    family: Hack
+    style: Bold Italic
+
+  size: 10.5
 scrolling:
   # Maximum number of lines in the scrollback buffer.
   # Specifying '0' will disable scrolling.
@@ -57,7 +35,39 @@ selection:
   save_to_clipboard: true
 
 live_config_reload: true
+cursor:
+  # Cursor style
+  style:
+    blinking: Never
 
-key_bindings:
-  # Vi Mode
-  - { key: Space, mods: Control, action: ToggleViMode }
+# key_bindings:
+## Vi Mode
+# - { key: Space, mods: Control, action: ToggleViMode }
+# BEGIN ACE
+colors:
+  primary:
+    background: '#121519'
+    foreground: '#cbe4ef'
+  cursor:
+    text:       '#121519'
+    cursor:     '#cbe4ef'
+  normal:
+    black:      '#121519'
+    red:        '#AD9D5B'
+    green:      '#637382'
+    yellow:     '#AD739A'
+    blue:       '#69B2C1'
+    magenta:    '#BDA3B9'
+    cyan:       '#D996AF'
+    white:      '#cbe4ef'
+  bright:
+    black:      '#8e9fa7'
+    red:        '#AD9D5B'
+    green:      '#637382'
+    yellow:     '#AD739A'
+    blue:       '#69B2C1'
+    magenta:    '#BDA3B9'
+    cyan:       '#D996AF'
+    white:      '#cbe4ef'
+# END ACE
+
