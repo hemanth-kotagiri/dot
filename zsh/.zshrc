@@ -65,13 +65,13 @@ alias d="cd /media/data/Workspace/my-dotfiles"
 alias fo="cd /media/data/Workspace/Freelancing/"
 alias conf="cd ~/.config && r"
 alias vc="cd ~/.config/nvim/ && v ."
-alias vci="cd ~/.config/nvim/ && v init.vim"
+alias vci="cd ~/.config/nvim/ && v init.lua"
 alias i3c="cd ~/.config/i3/ && v config"
 alias zc="v ~/.zshrc"
 alias s="source ~/.zshrc"
 alias ls="lsd --group-dirs first"
 alias cat="bat"
-alias l='ls -l'
+alias l='ls -la'
 alias la='ls -a'
 alias lla='ls -la'
 alias lt='ls --tree'
@@ -88,7 +88,10 @@ alias log="git log"
 alias wa="cd /media/data/linux-wall/ && r"
 alias lg="lazygit"
 alias dwc="cd /media/data/Workspace/suckless/dwm && v config.def.h"
+alias stc="cd /media/data/Workspace/suckless/st && v config.def.h"
 alias dwco="v ~/.cache/wal/colors-wal-dwm.h"
+alias og="git add . && git commit -m 'update' && git push"
+alias ca="cd /media/data/Workspace/wipro-training/mern-capstone"
 
 source /usr/share/fzf/completion.zsh
 source /usr/share/fzf/key-bindings.zsh
@@ -106,3 +109,4 @@ promptinit
 pfetch
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
