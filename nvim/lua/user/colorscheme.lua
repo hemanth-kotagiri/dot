@@ -1,4 +1,4 @@
-local colorscheme = "gruvbox"
+local colorscheme = "github_dark_default"
 
 if colorscheme == "gruvbox" then
 	vim.o.background = "dark"

@@ -71,6 +71,7 @@ keymap("n", "<C-f>", "<cmd>Telescope find_files hidden=true<cr>", term_opts)
 keymap("n", "<C-t>", "<cmd>Telescope live_grep<cr>", term_opts)
 keymap("n", "<C-b>", "<cmd>Telescope buffers<cr>", term_opts)
 keymap("n", "<leader>bf", "<cmd>Telescope current_buffer_fuzzy_find<cr>", term_opts)
+keymap("n", "<leader>ds", "<cmd>Telescope lsp_document_symbols<cr>", term_opts)
 
 -- CHEAT --
 keymap("n", "<leader>c", "<cmd>Cheat<cr>", term_opts)
