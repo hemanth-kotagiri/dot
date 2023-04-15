@@ -284,6 +284,12 @@ _G.packer_plugins = {
     path = "/home/hemanth/.local/share/nvim/site/pack/packer/start/nvim-solarized-lua",
     url = "https://github.com/ishan9299/nvim-solarized-lua"
   },
+  ["nvim-tmux-navigation"] = {
+    config = { "\27LJ\2\nÂ\3\0\0\6\0\20\00016\0\0\0'\2\1\0B\0\2\0029\1\2\0005\3\3\0B\1\2\0016\1\4\0009\1\5\0019\1\6\1'\3\a\0'\4\b\0009\5\t\0B\1\4\0016\1\4\0009\1\5\0019\1\6\1'\3\a\0'\4\n\0009\5\v\0B\1\4\0016\1\4\0009\1\5\0019\1\6\1'\3\a\0'\4\f\0009\5\r\0B\1\4\0016\1\4\0009\1\5\0019\1\6\1'\3\a\0'\4\14\0009\5\15\0B\1\4\0016\1\4\0009\1\5\0019\1\6\1'\3\a\0'\4\16\0009\5\17\0B\1\4\0016\1\4\0009\1\5\0019\1\6\1'\3\a\0'\4\18\0009\5\19\0B\1\4\1K\0\1\0\25NvimTmuxNavigateNext\14<C-Space>\31NvimTmuxNavigateLastActive\n<C-\\>\26NvimTmuxNavigateRight\n<C-l>\23NvimTmuxNavigateUp\n<C-k>\25NvimTmuxNavigateDown\n<C-j>\25NvimTmuxNavigateLeft\n<C-h>\6n\bset\vkeymap\bvim\1\0\1\24disable_when_zoomed\2\nsetup\25nvim-tmux-navigation\frequire\0" },
+    loaded = true,
+    path = "/home/hemanth/.local/share/nvim/site/pack/packer/start/nvim-tmux-navigation",
+    url = "https://github.com/alexghergh/nvim-tmux-navigation"
+  },
   ["nvim-transparent"] = {
     loaded = true,
     path = "/home/hemanth/.local/share/nvim/site/pack/packer/start/nvim-transparent",
@@ -356,6 +362,11 @@ _G.packer_plugins = {
     path = "/home/hemanth/.local/share/nvim/site/pack/packer/start/popup.nvim",
     url = "https://github.com/nvim-lua/popup.nvim"
   },
+  ["telescope-file-browser.nvim"] = {
+    loaded = true,
+    path = "/home/hemanth/.local/share/nvim/site/pack/packer/start/telescope-file-browser.nvim",
+    url = "https://github.com/nvim-telescope/telescope-file-browser.nvim"
+  },
   ["telescope-ui-select.nvim"] = {
     loaded = true,
     path = "/home/hemanth/.local/share/nvim/site/pack/packer/start/telescope-ui-select.nvim",
@@ -396,6 +407,11 @@ _G.packer_plugins = {
     path = "/home/hemanth/.local/share/nvim/site/pack/packer/start/vim-wakatime",
     url = "https://github.com/wakatime/vim-wakatime"
   },
+  ["vscode.nvim"] = {
+    loaded = true,
+    path = "/home/hemanth/.local/share/nvim/site/pack/packer/start/vscode.nvim",
+    url = "https://github.com/Mofiqul/vscode.nvim"
+  },
   ["wal.vim"] = {
     loaded = true,
     path = "/home/hemanth/.local/share/nvim/site/pack/packer/start/wal.vim",
@@ -408,15 +424,19 @@ time([[Defining packer_plugins]], false)
 time([[Config for document-color.nvim]], true)
 try_loadstring("\27LJ\2\nS\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\1\tmode\15background\nsetup\19document-color\frequire\0", "config", "document-color.nvim")
 time([[Config for document-color.nvim]], false)
+-- Config for: nvim-tmux-navigation
+time([[Config for nvim-tmux-navigation]], true)
+try_loadstring("\27LJ\2\nÂ\3\0\0\6\0\20\00016\0\0\0'\2\1\0B\0\2\0029\1\2\0005\3\3\0B\1\2\0016\1\4\0009\1\5\0019\1\6\1'\3\a\0'\4\b\0009\5\t\0B\1\4\0016\1\4\0009\1\5\0019\1\6\1'\3\a\0'\4\n\0009\5\v\0B\1\4\0016\1\4\0009\1\5\0019\1\6\1'\3\a\0'\4\f\0009\5\r\0B\1\4\0016\1\4\0009\1\5\0019\1\6\1'\3\a\0'\4\14\0009\5\15\0B\1\4\0016\1\4\0009\1\5\0019\1\6\1'\3\a\0'\4\16\0009\5\17\0B\1\4\0016\1\4\0009\1\5\0019\1\6\1'\3\a\0'\4\18\0009\5\19\0B\1\4\1K\0\1\0\25NvimTmuxNavigateNext\14<C-Space>\31NvimTmuxNavigateLastActive\n<C-\\>\26NvimTmuxNavigateRight\n<C-l>\23NvimTmuxNavigateUp\n<C-k>\25NvimTmuxNavigateDown\n<C-j>\25NvimTmuxNavigateLeft\n<C-h>\6n\bset\vkeymap\bvim\1\0\1\24disable_when_zoomed\2\nsetup\25nvim-tmux-navigation\frequire\0", "config", "nvim-tmux-navigation")
+time([[Config for nvim-tmux-navigation]], false)
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Filetype lazy-loads
 time([[Defining lazy-load filetype autocommands]], true)
-vim.cmd [[au FileType typescriptreact ++once lua require("packer.load")({'nvim-ts-autotag', 'emmet-vim'}, { ft = "typescriptreact" }, _G.packer_plugins)]]
-vim.cmd [[au FileType javascriptreact ++once lua require("packer.load")({'nvim-ts-autotag', 'emmet-vim'}, { ft = "javascriptreact" }, _G.packer_plugins)]]
-vim.cmd [[au FileType markdown ++once lua require("packer.load")({'nvim-ts-autotag', 'markdown-preview.nvim', 'emmet-vim'}, { ft = "markdown" }, _G.packer_plugins)]]
-vim.cmd [[au FileType css ++once lua require("packer.load")({'nvim-ts-autotag', 'emmet-vim'}, { ft = "css" }, _G.packer_plugins)]]
-vim.cmd [[au FileType html ++once lua require("packer.load")({'nvim-ts-autotag', 'emmet-vim'}, { ft = "html" }, _G.packer_plugins)]]
+vim.cmd [[au FileType typescriptreact ++once lua require("packer.load")({'emmet-vim', 'nvim-ts-autotag'}, { ft = "typescriptreact" }, _G.packer_plugins)]]
+vim.cmd [[au FileType javascriptreact ++once lua require("packer.load")({'emmet-vim', 'nvim-ts-autotag'}, { ft = "javascriptreact" }, _G.packer_plugins)]]
+vim.cmd [[au FileType css ++once lua require("packer.load")({'emmet-vim', 'nvim-ts-autotag'}, { ft = "css" }, _G.packer_plugins)]]
+vim.cmd [[au FileType markdown ++once lua require("packer.load")({'markdown-preview.nvim', 'emmet-vim', 'nvim-ts-autotag'}, { ft = "markdown" }, _G.packer_plugins)]]
+vim.cmd [[au FileType html ++once lua require("packer.load")({'emmet-vim', 'nvim-ts-autotag'}, { ft = "html" }, _G.packer_plugins)]]
 time([[Defining lazy-load filetype autocommands]], false)
 vim.cmd("augroup END")
 
