@@ -4,8 +4,14 @@ if not status_ok then
 end
 
 local actions = require("telescope.actions")
+local builtin = require("telescope.builtin")
 
 telescope.setup({
+  builtins = {
+    find_files = {
+      path_display = { "absolute" },
+    }
+  },
   defaults = {
     entry_prefix = "  ",
     multi_icon = "<>",
@@ -139,20 +145,8 @@ telescope.setup({
         -- even more opts
       }),
     },
-   file_browser = {
-      theme = "ivy",
-      -- disables netrw and use telescope-file-browser in its place
-      mappings = {
-        ["i"] = {
-          -- your custom insert mode mappings
-        },
-        ["n"] = {
-          -- your custom normal mode mappings
-        },
-      },
-    }, 
   },
 })
 
 require("telescope").load_extension("ui-select")
-require("telescope").load_extension("file_browser")
+require("telescope").load_extension "file_browser"
