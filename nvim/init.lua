@@ -12,11 +12,11 @@ require("user.treesitter")
 require("user.colorscheme")
 require("user.nvim-tree")
 require("user.null-ls")
-require("user.lualine")
---[[ require("user.toggle-term") ]]
+require("user.lualine") --[[ require("user.toggle-term") ]]
 require("user.escape")
 require("user.navigator")
 require("user.bufferline")
 require("user.colorizer")
 require("user.context")
-vim.cmd[[hi NvimTreeNormal guibg=NONE ctermbg=NONE]]
+--[[ require("user.nvim-transparent") ]]
+--[[ vim.cmd[[hi NvimTreeNormal guibg=NONE ctermbg=NONE]] 

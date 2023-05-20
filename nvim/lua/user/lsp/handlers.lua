@@ -92,6 +92,7 @@ M.on_attach = function(client, bufnr)
     -- Attach document colour support
     require("document-color").buf_attach(bufnr)
   end
+  vim.api.nvim_buf_set_option(bufnr, "formatexpr", "")
   lsp_keymaps(bufnr)
   lsp_highlight_document(client)
 end
