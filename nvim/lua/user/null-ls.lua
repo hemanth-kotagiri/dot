@@ -16,7 +16,7 @@ null_ls.setup({
   sources = {
     formatting.prettierd.with({
       extra_filetypes = { "toml", "solidity", "typescriptreact" },
-      extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" },
+      --[[ extra_args = { "--single-quote", "--jsx-single-quote"}, ]]
     }),
     formatting.black.with({ extra_args = { "--fast" } }),
     formatting.stylua,

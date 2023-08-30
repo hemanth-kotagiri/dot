@@ -23,4 +23,3 @@ npairs.setup {
     highlight_grey = "LineNr",
   },
 }
-

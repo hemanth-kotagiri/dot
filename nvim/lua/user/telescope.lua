@@ -10,7 +10,7 @@ telescope.setup({
   builtins = {
     find_files = {
       path_display = { "absolute" },
-    }
+    },
   },
   defaults = {
     entry_prefix = "  ",
@@ -123,6 +123,9 @@ telescope.setup({
     },
   },
   pickers = {
+    colorshemes = {
+      preview = true,
+    },
     lsp_code_actions = {
       theme = "dropdown",
     },
@@ -148,5 +151,40 @@ telescope.setup({
   },
 })
 
+local git_hunks = function()
+  require("telescope.pickers")
+      .new({
+        finder = require("telescope.finders").new_oneshot_job({ "git", "jump", "--stdout", "diff" }, {
+          entry_maker = function(line)
+            local filename, lnum_string = line:match("([^:]+):(%d+).*")
+
+            -- I couldn't find a way to use grep in new_oneshot_job so we have to filter here.
+            -- return nil if filename is /dev/null because this means the file was deleted.
+            if filename:match("^/dev/null") then
+              return nil
+            end
+
+            return {
+              value = filename,
+              display = line,
+              ordinal = line,
+              filename = filename,
+              lnum = tonumber(lnum_string),
+            }
+          end,
+        }),
+        sorter = require("telescope.sorters").get_generic_fuzzy_sorter(),
+        previewer = require("telescope.config").values.grep_previewer({}),
+        results_title = "Git hunks",
+        prompt_title = "Git hunks",
+        layout_strategy = "flex",
+      }, {})
+      :find()
+end
+
+vim.keymap.set("n", "<Leader>gh", git_hunks, {})
+
 require("telescope").load_extension("ui-select")
-require("telescope").load_extension "file_browser"
+require("telescope").load_extension("file_browser")
+require("telescope").load_extension("gh")
+require("telescope").load_extension("tmux")

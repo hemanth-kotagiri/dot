@@ -8,7 +8,7 @@ local options = {
   hlsearch = true,
   ignorecase = true,
   mouse = "a",
-  pumheight = 10,
+  --[[ pumheight = 10, ]]
   showmode = false,
   showtabline = 2,
   smartcase = true,
@@ -31,14 +31,17 @@ local options = {
   wrap = false,
   scrolloff = 8,
   sidescrolloff = 8,
-  guifont = "monospace:h17",
+  guifont = "hack:h13",
   background = "dark",
   guicursor = "n-v-c-i:block",
   autoindent = true,
+  autoread = true,
   textwidth = 80,
 }
 
 vim.opt.shortmess:append("c")
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 
 for k, v in pairs(options) do
   vim.opt[k] = v
@@ -58,7 +61,6 @@ local augroup = vim.api.nvim_create_augroup
 HemanthGroup = augroup("Hemanth", {})
 local autocmd = vim.api.nvim_create_autocmd
 local yank_group = augroup("HighlightYank", {})
-
 autocmd("TextYankPost", {
   group = yank_group,
   pattern = "*",

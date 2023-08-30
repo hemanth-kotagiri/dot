@@ -19,14 +19,16 @@ keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
+keymap("n", "//", ":noh<cr>", opts)
+keymap("n", "<C-u>", "<C-u>zz", opts)
+keymap("n", "<C-d>", "<C-d>zz", opts)
+keymap("n", "J", "maJ`a", opts)
 
 -- Panes --
 keymap("n", "<C-S-Up>", ":resize +2<CR>", opts)
 keymap("n", "<C-S-Down>", ":resize -2<CR>", opts)
 keymap("n", "<C-S-Left>", ":vertical resize +2<CR>", opts)
 keymap("n", "<C-S-Right>", ":vertical resize -2<CR>", opts)
-keymap("n", "<leader>|", "<C-w>|<CR>", opts)
-keymap("n", "<leader>=", "<C-w>=<CR>", opts)
 
 keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
@@ -40,9 +42,14 @@ keymap("n", "<leader>db", ":bdelete<CR>", opts)
 -- Leader Keymaps
 keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
 keymap("n", "<leader>m", ":MarkdownPreviewToggle<cr>", opts)
-keymap("n", "//", ":noh<cr>", opts)
 keymap("n", "<leader>f", ":lua vim.lsp.buf.format({async = true})<cr>", opts)
 keymap("n", "<leader><CR>", ":so %<CR>", opts)
+keymap("n", "<leader>rl", ":edit<CR>", opts)
+keymap("n", "<leader>|", "<C-w>|<CR>", opts)
+keymap("n", "<leader>=", "<C-w>=<CR>", opts)
+keymap("n", "<leader>tt", ":TransparentToggle<CR>", opts)
+keymap("n", "<leader>lg", "ma:Logsitter<CR>", opts)
+--[[ vim.cmd("nnoremap <leader>lg ma:silent put=['console.log(\"<C-r><C-w>\", <C-r><C-w>);']<CR>-2==+`a") ]]
 
 -- Insert --
 keymap("i", "jk", "<ESC>", opts)
@@ -85,6 +92,10 @@ keymap("n", "<leader>bc", "<cmd>Telescope git_bcommits<cr>", term_opts)
 keymap("n", "<leader>gb", "<cmd>Telescope git_branches<cr>", term_opts)
 keymap("n", "<leader>pr", "<cmd>Telescope gh pull_request<cr>", term_opts)
 keymap("n", "<leader>pf", "<cmd>Telescope gh pull_request_files<cr>", term_opts)
+keymap("n", "<leader>qf", "<cmd>Telescope quickfix<cr>", term_opts)
+keymap("n", "<leader>qh", "<cmd>Telescope quickfixhistory<cr>", term_opts)
+keymap("n", "<leader>tw", "<cmd>Telescope tmux windows<cr>", term_opts)
+keymap("n", "<leader>td", "<cmd>Telescope diagnostics<cr>", term_opts)
 
 
 -- CHEAT --
