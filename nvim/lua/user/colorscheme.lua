@@ -1,8 +1,7 @@
-local colorscheme = "github_dark_default"
+local colorscheme = "tokyodark"
 
 if colorscheme == "gruvbox" then
-	vim.o.background = "dark"
-end
+	vim.o.background = "dark" end
 
 if colorscheme == "tokyonight" then
 	vim.g.tokyonight_style = "night"
@@ -27,6 +26,13 @@ if colorscheme == "neon" then
 	vim.g.neon_italic_keyword = true
 	vim.g.neon_italic_function = true
 	vim.g.neon_transparent = false
+end
+
+if colorscheme == 'aurora' then
+  vim.g.aurora_italic = true
+  vim.g.aurora_transparent = false
+  vim.g.aurora_bold = true
+  vim.g.aurora_darker = true
 end
 
 local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
