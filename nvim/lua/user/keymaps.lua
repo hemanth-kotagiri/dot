@@ -1,6 +1,7 @@
 local opts = { noremap = true, silent = true }
 local term_opts = { silent = true }
 local keymap = vim.api.nvim_set_keymap
+local luasnip = require("luasnip")
 
 keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
@@ -105,3 +106,15 @@ keymap("n", "<leader>c", "<cmd>Cheat<cr>", term_opts)
 -- vim.cmd 'let g:user_emmet_install_global = 0'
 -- vim.cmd 'autocmd FileType html,css,jsx,tsx EmmetInstall'
 vim.cmd("let g:user_emmet_leader_key=','")
+
+-- luasnip
+vim.keymap.set({ "i" }, "<C-K>", function() luasnip.expand() end, { silent = true })
+vim.keymap.set({ "i", "s" }, "<C-n>", function() luasnip.jump(1) end, { silent = true })
+vim.keymap.set({ "i", "s" }, "<C-p>", function() luasnip.jump(-1) end, { silent = true })
+
+vim.keymap.set({ "i", "s" }, "<C-E>", function()
+  if luasnip.choice_active() then
+    luasnip.change_choice(1)
+  end
+end, { silent = true })
+
