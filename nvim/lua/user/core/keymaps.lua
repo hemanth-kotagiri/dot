@@ -1,19 +1,9 @@
 local opts = { noremap = true, silent = true }
 local term_opts = { silent = true }
-local keymap = vim.api.nvim_set_keymap
-local luasnip = require("luasnip")
+local keymap = vim.keymap.set
 
-keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
-
--- REFERENCE
---   normal_mode = "n",
---   insert_mode = "i",
---   visual_mode = "v",
---   visual_block_mode = "x",
---   term_mode = "t",
---   command_mode = "c",
 
 -- Normal --
 keymap("n", "<C-h>", "<C-w>h", opts)
@@ -82,7 +72,8 @@ keymap("n", "]]", "<cmd>Gitsigns next_hunk<cr>", term_opts)
 keymap("n", "[[", "<cmd>Gitsigns prev_hunk<cr>", term_opts)
 
 -- Telescope --
-keymap("n", "<C-f>", "<cmd>Telescope find_files hidden=true<cr>", term_opts)
+keymap("n", "<C-f>", "<cmd>Telescope git_files hidden=true<cr>", term_opts)
+keymap("n", "<C-p>", "<cmd>Telescope find_files hidden=true<cr>", term_opts)
 keymap("n", "<C-t>", "<cmd>Telescope live_grep<cr>", term_opts)
 keymap("n", "<C-b>", "<cmd>Telescope buffers<cr>", term_opts)
 keymap("n", "<leader>bf", "<cmd>Telescope current_buffer_fuzzy_find<cr>", term_opts)
@@ -98,7 +89,6 @@ keymap("n", "<leader>qh", "<cmd>Telescope quickfixhistory<cr>", term_opts)
 keymap("n", "<leader>tw", "<cmd>Telescope tmux windows<cr>", term_opts)
 keymap("n", "<leader>td", "<cmd>Telescope diagnostics<cr>", term_opts)
 
-
 -- CHEAT --
 keymap("n", "<leader>c", "<cmd>Cheat<cr>", term_opts)
 
@@ -107,14 +97,9 @@ keymap("n", "<leader>c", "<cmd>Cheat<cr>", term_opts)
 -- vim.cmd 'autocmd FileType html,css,jsx,tsx EmmetInstall'
 vim.cmd("let g:user_emmet_leader_key=','")
 
--- luasnip
-vim.keymap.set({ "i" }, "<C-K>", function() luasnip.expand() end, { silent = true })
-vim.keymap.set({ "i", "s" }, "<C-n>", function() luasnip.jump(1) end, { silent = true })
-vim.keymap.set({ "i", "s" }, "<C-p>", function() luasnip.jump(-1) end, { silent = true })
-
-vim.keymap.set({ "i", "s" }, "<C-E>", function()
-  if luasnip.choice_active() then
-    luasnip.change_choice(1)
-  end
-end, { silent = true })
-
+-- DiffView ---
+keymap("n", "<leader>df", "<cmd>DiffviewOpen origin/develop... --imply-local<cr>", term_opts)
+keymap("n", "<leader>gdf", "<cmd>G pull | DiffviewOpen origin/develop... --imply-local<cr>", term_opts)
+keymap("n", "<leader>gddf", "<cmd>G pull origin develop | DiffviewOpen origin/develop... --imply-local<cr>", term_opts)
+keymap("n", "<leader>cfh", "<cmd>DiffviewFileHistory % --imply-local<cr>", term_opts)
+keymap("n", "<leader>cdf", "<cmd>DiffviewClose<cr>", term_opts)

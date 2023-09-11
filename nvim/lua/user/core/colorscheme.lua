@@ -1,4 +1,4 @@
-local colorscheme = "tokyodark"
+local colorscheme = "ayu-dark"
 
 if colorscheme == "gruvbox" then
 	vim.o.background = "dark" end
@@ -42,5 +42,5 @@ if not status_ok then
 	return
 end
 
---[[ require('colorbuddy').colorscheme('nvim-rdark') ]]
---[[ require('colorbuddy').colorscheme('gruvbuddy') ]]
+-- require('colorbuddy').colorscheme('nvim-rdark')
+-- require('colorbuddy').colorscheme('gruvbuddy')
