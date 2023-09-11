@@ -197,26 +197,5 @@ return {
         }, {})
         :find()
     end
-
-    local keymap = vim.keymap.set
-    local term_opts = { silent = true }
-
-    keymap("n", "<Leader>gh", git_hunks, {})
-    keymap("n", "<C-f>", "<cmd>Telescope git_files hidden=true<cr>", term_opts)
-    keymap("n", "<C-p>", "<cmd>Telescope find_files hidden=true<cr>", term_opts)
-    keymap("n", "<C-t>", "<cmd>Telescope live_grep<cr>", term_opts)
-    keymap("n", "<C-b>", "<cmd>Telescope buffers<cr>", term_opts)
-    keymap("n", "<leader>bf", "<cmd>Telescope current_buffer_fuzzy_find<cr>", term_opts)
-    keymap("n", "<leader>ds", "<cmd>Telescope lsp_document_symbols<cr>", term_opts)
-    keymap("n", "<leader>gc", "<cmd>Telescope git_commits<cr>", term_opts)
-    keymap("n", "<leader>fb", "<cmd>Telescope file_browser<cr>", term_opts)
-    keymap("n", "<leader>bc", "<cmd>Telescope git_bcommits<cr>", term_opts)
-    keymap("n", "<leader>gb", "<cmd>Telescope git_branches<cr>", term_opts)
-    keymap("n", "<leader>pr", "<cmd>Telescope gh pull_request<cr>", term_opts)
-    keymap("n", "<leader>pf", "<cmd>Telescope gh pull_request_files<cr>", term_opts)
-    keymap("n", "<leader>qf", "<cmd>Telescope quickfix<cr>", term_opts)
-    keymap("n", "<leader>qh", "<cmd>Telescope quickfixhistory<cr>", term_opts)
-    keymap("n", "<leader>tw", "<cmd>Telescope tmux windows<cr>", term_opts)
-    keymap("n", "<leader>td", "<cmd>Telescope diagnostics<cr>", term_opts)
   end,
 }

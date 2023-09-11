@@ -127,7 +127,7 @@ return {
     local keymap = vim.keymap.set
     local term_opts = { silent = true }
 
-    keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
+    keymap("n", "<leader>e", ":NvimTreeToggle<cr>", term_opts)
 
   end,
 }
