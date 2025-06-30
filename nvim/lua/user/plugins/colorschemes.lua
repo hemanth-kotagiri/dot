@@ -27,4 +27,5 @@ return {
   "ray-x/aurora",
   "Shatur/neovim-ayu",
   "bluz71/vim-nightfly-guicolors",
+  { "ntk148v/habamax.nvim", dependencies = { "rktjmp/lush.nvim" } },
 }

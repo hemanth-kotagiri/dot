@@ -14,6 +14,7 @@ return {
   },
   config = function()
     local telescope = require("telescope")
+    local trouble = require("trouble.providers.telescope")
     local actions = require("telescope.actions")
 
     telescope.setup({
@@ -83,7 +84,7 @@ return {
             ["<CR>"] = actions.select_default,
             ["<C-x>"] = actions.select_horizontal,
             ["<C-v>"] = actions.select_vertical,
-            ["<C-t>"] = actions.select_tab,
+            ["<C-t>"] = require('trouble.sources.telescope').open,
 
             ["<C-u>"] = actions.preview_scrolling_up,
             ["<C-d>"] = actions.preview_scrolling_down,
@@ -104,7 +105,7 @@ return {
             ["<CR>"] = actions.select_default,
             ["<C-x>"] = actions.select_horizontal,
             ["<C-v>"] = actions.select_vertical,
-            ["<C-t>"] = actions.select_tab,
+            ["<C-t>"] = require('trouble.sources.telescope').open,
 
             ["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
             ["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
@@ -169,33 +170,34 @@ return {
 
     local git_hunks = function()
       require("telescope.pickers")
-        .new({
-          finder = require("telescope.finders").new_oneshot_job({ "git", "jump", "--stdout", "diff" }, {
-            entry_maker = function(line)
-              local filename, lnum_string = line:match("([^:]+):(%d+).*")
+          .new({
+            finder = require("telescope.finders").new_oneshot_job({ "git", "jump", "--stdout", "diff" }, {
+              entry_maker = function(line)
+                local filename, lnum_string = line:match("([^:]+):(%d+).*")
 
-              -- I couldn't find a way to use grep in new_oneshot_job so we have to filter here.
-              -- return nil if filename is /dev/null because this means the file was deleted.
-              if filename:match("^/dev/null") then
-                return nil
-              end
+                -- I couldn't find a way to use grep in new_oneshot_job so we have to filter here.
+                -- return nil if filename is /dev/null because this means the file was deleted.
+                if filename:match("^/dev/null") then
+                  return nil
+                end
 
-              return {
-                value = filename,
-                display = line,
-                ordinal = line,
-                filename = filename,
-                lnum = tonumber(lnum_string),
-              }
-            end,
-          }),
-          sorter = require("telescope.sorters").get_generic_fuzzy_sorter(),
-          previewer = require("telescope.config").values.grep_previewer({}),
-          results_title = "Git hunks",
-          prompt_title = "Git hunks",
-          layout_strategy = "flex",
-        }, {})
-        :find()
+                return {
+                  value = filename,
+                  display = line,
+                  ordinal = line,
+                  filename = filename,
+                  lnum = tonumber(lnum_string),
+                }
+              end,
+            }),
+            sorter = require("telescope.sorters").get_generic_fuzzy_sorter(),
+            previewer = require("telescope.config").values.grep_previewer({}),
+            results_title = "Git hunks",
+            prompt_title = "Git hunks",
+            layout_strategy = "flex",
+          }, {})
+          :find()
     end
+    vim.keymap.set("n", "<Leader>gh", git_hunks, {})
   end,
 }

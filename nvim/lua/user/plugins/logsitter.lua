@@ -1,0 +1,3 @@
+return {
+  "gaelph/logsitter.nvim"
+}
