@@ -1,50 +1,53 @@
 local options = {
-  backup = false,
-  clipboard = "unnamedplus",
-  cmdheight = 1,
-  completeopt = { "menuone", "noselect" },
-  conceallevel = 0,
-  fileencoding = "utf-8",
-  hlsearch = true,
-  ignorecase = true,
-  mouse = "a",
-  --[[ pumheight = 10, ]]
-  showmode = false,
-  showtabline = 2,
-  smartcase = true,
-  smartindent = true,
-  splitbelow = true,
-  splitright = true,
-  swapfile = false,
-  termguicolors = true,
-  undofile = true,
-  updatetime = 300,
-  writebackup = false,
-  expandtab = true,
-  shiftwidth = 2,
-  tabstop = 2,
-  cursorline = false,
-  number = true,
-  relativenumber = true,
-  numberwidth = 4,
-  signcolumn = "yes",
-  wrap = false,
-  scrolloff = 8,
-  sidescrolloff = 8,
-  guifont = "hack:h13",
-  background = "dark",
-  guicursor = "n-v-c-i:block",
-  autoindent = true,
-  autoread = true,
-  textwidth = 80,
+	backup = false,
+	clipboard = "unnamedplus",
+	cmdheight = 1,
+	completeopt = { "menuone", "noselect" },
+	conceallevel = 0,
+	fileencoding = "utf-8",
+	hlsearch = true,
+	ignorecase = true,
+	mouse = "a",
+	-- pumheight = 10,
+	showmode = false,
+	showtabline = 2,
+	smartcase = true,
+	smartindent = true,
+	splitbelow = true,
+	splitright = true,
+	swapfile = false,
+	termguicolors = true,
+	undofile = true,
+	updatetime = 300,
+	writebackup = false,
+	expandtab = true,
+	shiftwidth = 2,
+	tabstop = 2,
+	number = true,
+	relativenumber = true,
+	numberwidth = 4,
+	signcolumn = "yes",
+	wrap = false,
+	scrolloff = 8,
+	sidescrolloff = 8,
+	guifont = "hack:h13",
+	background = "dark",
+	guicursor = "n-v-c-i:block",
+	autoindent = true,
+	autoread = true,
+	textwidth = 80,
+	cursorline = false,
+	cursorcolumn = false,
 }
 
 vim.opt.shortmess:append("c")
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
+vim.o.winborder = "rounded"
+vim.g.have_nerd_font = true
 
 for k, v in pairs(options) do
-  vim.opt[k] = v
+	vim.opt[k] = v
 end
 
 vim.cmd("set whichwrap+=<,>,[,],h,l")
@@ -62,12 +65,12 @@ HemanthGroup = augroup("Hemanth", {})
 local autocmd = vim.api.nvim_create_autocmd
 local yank_group = augroup("HighlightYank", {})
 autocmd("TextYankPost", {
-  group = yank_group,
-  pattern = "*",
-  callback = function()
-    vim.highlight.on_yank({
-      higroup = "IncSearch",
-      timeout = 40,
-    })
-  end,
+	group = yank_group,
+	pattern = "*",
+	callback = function()
+		vim.highlight.on_yank({
+			higroup = "IncSearch",
+			timeout = 40,
+		})
+	end,
 })

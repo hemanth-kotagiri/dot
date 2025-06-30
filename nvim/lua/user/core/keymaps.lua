@@ -33,7 +33,9 @@ keymap("n", "<leader>db", ":bdelete<CR>", opts)
 -- Leader Keymaps
 keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
 keymap("n", "<leader>m", ":MarkdownPreviewToggle<cr>", opts)
-keymap("n", "<leader>f", ":lua vim.lsp.buf.format({async = true})<cr>", opts)
+-- keymap("n", "<leader>f", ":lua vim.lsp.buf.format({async = true})<cr>", opts)
+keymap("n", "<leader>f", "<cmd>lua require('conform').format()<cr>", opts)
+keymap("n", "<leader>og", ":TSToolsOrganizeImports<cr>", opts)
 keymap("n", "<leader><CR>", ":so %<CR>", opts)
 keymap("n", "<leader>rl", ":edit<CR>", opts)
 keymap("n", "<leader>|", "<C-w>|<CR>", opts)
@@ -72,22 +74,29 @@ keymap("n", "]]", "<cmd>Gitsigns next_hunk<cr>", term_opts)
 keymap("n", "[[", "<cmd>Gitsigns prev_hunk<cr>", term_opts)
 
 -- Telescope --
-keymap("n", "<C-f>", "<cmd>Telescope git_files hidden=true<cr>", term_opts)
 keymap("n", "<C-p>", "<cmd>Telescope find_files hidden=true<cr>", term_opts)
 keymap("n", "<C-t>", "<cmd>Telescope live_grep<cr>", term_opts)
 keymap("n", "<C-b>", "<cmd>Telescope buffers<cr>", term_opts)
 keymap("n", "<leader>bf", "<cmd>Telescope current_buffer_fuzzy_find<cr>", term_opts)
-keymap("n", "<leader>ds", "<cmd>Telescope lsp_document_symbols<cr>", term_opts)
-keymap("n", "<leader>gc", "<cmd>Telescope git_commits<cr>", term_opts)
 keymap("n", "<leader>fb", "<cmd>Telescope file_browser<cr>", term_opts)
-keymap("n", "<leader>bc", "<cmd>Telescope git_bcommits<cr>", term_opts)
-keymap("n", "<leader>gb", "<cmd>Telescope git_branches<cr>", term_opts)
 keymap("n", "<leader>pr", "<cmd>Telescope gh pull_request<cr>", term_opts)
 keymap("n", "<leader>pf", "<cmd>Telescope gh pull_request_files<cr>", term_opts)
 keymap("n", "<leader>qf", "<cmd>Telescope quickfix<cr>", term_opts)
 keymap("n", "<leader>qh", "<cmd>Telescope quickfixhistory<cr>", term_opts)
 keymap("n", "<leader>tw", "<cmd>Telescope tmux windows<cr>", term_opts)
 keymap("n", "<leader>td", "<cmd>Telescope diagnostics<cr>", term_opts)
+keymap("n", "<leader><leader>", ":FZF<CR>")
+
+-- Git --
+keymap("n", "<leader>bc", "<cmd>Telescope git_bcommits<cr>", term_opts)
+keymap("n", "<leader>gb", "<cmd>Telescope git_branches<cr>", term_opts)
+keymap("n", "<leader>gc", "<cmd>Telescope git_commits<cr>", term_opts)
+keymap("n", "<C-f>", "<cmd>Telescope git_files hidden=true<cr>", term_opts)
+keymap("n", "<leader>gp", "<cmd>Git pull<cr>", term_opts)
+keymap("n", "<leader>gr", "<cmd>Git pull origin develop --rebase<cr>", term_opts)
+keymap("n", "<leader>gm", "<cmd>Git pull origin develop<cr>", term_opts)
+keymap("n", "<leader>ra", "<cmd>Git rebase --abort<cr>", term_opts)
+keymap("n", "<leader>ma", "<cmd>Git merge --abort<cr>", term_opts)
 
 -- CHEAT --
 keymap("n", "<leader>c", "<cmd>Cheat<cr>", term_opts)
@@ -98,8 +107,32 @@ keymap("n", "<leader>c", "<cmd>Cheat<cr>", term_opts)
 vim.cmd("let g:user_emmet_leader_key=','")
 
 -- DiffView ---
-keymap("n", "<leader>df", "<cmd>DiffviewOpen origin/develop... --imply-local<cr>", term_opts)
-keymap("n", "<leader>gdf", "<cmd>G pull | DiffviewOpen origin/develop... --imply-local<cr>", term_opts)
-keymap("n", "<leader>gddf", "<cmd>G pull origin develop | DiffviewOpen origin/develop... --imply-local<cr>", term_opts)
-keymap("n", "<leader>cfh", "<cmd>DiffviewFileHistory % --imply-local<cr>", term_opts)
-keymap("n", "<leader>cdf", "<cmd>DiffviewClose<cr>", term_opts)
+local develop_branch = "origin/develop"
+local main_branch = "origin/main"
+
+local default_command = "DiffviewOpen "
+local pull_and_diff = "G pull | DiffviewOpen "
+local merge_develop_and_diff = "G pull origin develop | DiffviewOpen origin/develop... --imply-local"
+
+local diffview_keymaps = {
+	["<leader>df"] = default_command .. develop_branch .. ".. --imply-local",
+	["<leader>gdf"] = pull_and_diff .. develop_branch .. ".. --imply-local",
+	["<leader>gddf"] = merge_develop_and_diff,
+	["<leader>cfh"] = "DiffviewFileHistory % --imply-local",
+}
+
+for map, command in pairs(diffview_keymaps) do
+	vim.keymap.set("n", map, function()
+		if next(require("diffview.lib").views) == nil then
+			local ok, result = pcall(vim.cmd, command)
+			if not ok then
+				local ok, result = pcall(vim.cmd, default_command .. main_branch)
+				if not ok then
+					print("something went wrong!")
+				end
+			end
+		else
+			vim.cmd("DiffviewClose")
+		end
+	end)
+end

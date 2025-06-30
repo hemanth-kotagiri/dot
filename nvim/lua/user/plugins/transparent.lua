@@ -13,6 +13,9 @@ return {
         "BufferLineSeparator",
         "BufferLineIndicatorSelected",
       },
+      exclude_groups = {
+        -- "CursorLine"
+      }
     })
-  end
+  end,
 }

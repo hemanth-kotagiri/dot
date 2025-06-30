@@ -14,9 +14,11 @@ return {
       vim.keymap.set("n", "<C-l>", nvim_tmux_nav.NvimTmuxNavigateRight)
     end,
   },
-  {"RRethy/vim-illuminate", event = "BufReadPre"},
-  "nvim-lua/plenary.nvim", 
+  { "RRethy/vim-illuminate", event = "BufReadPre" },
+  "nvim-lua/plenary.nvim",
   "tpope/vim-repeat",
   "tpope/vim-surround",
   "tpope/vim-fugitive",
+  "tpope/vim-rhubarb",
+  { "kevinhwang91/nvim-bqf", dependencies = { "junegunn/fzf" } },
 }
