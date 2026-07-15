@@ -110,3 +110,11 @@ pfetch
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+
+# NuvemRx dev sessions (tmuxinator): `work` starts the claude session detached
+# and the 4-window repo session attached. Cycle repos with prefix-n / prefix-p;
+# reach claude via the session tree (prefix + s).
+work() {
+  tmuxinator start claude --no-attach
+  tmuxinator start work
+}

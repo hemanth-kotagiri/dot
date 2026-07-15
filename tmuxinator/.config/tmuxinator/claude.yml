@@ -1,0 +1,9 @@
+name: claude
+root: ~/Desktop/dev
+
+# Single window / single pane that auto-runs `claude` at the workspace root.
+# Started detached by the `work` shell function; reach it via the session tree (prefix + s).
+windows:
+  - claude:
+      panes:
+        - claude

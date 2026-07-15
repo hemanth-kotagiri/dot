@@ -1,0 +1,36 @@
+name: work
+root: ~/Desktop/dev
+
+# One window per repo, cycled with prefix-n / prefix-p:
+#   1:frontend  2:platform  3:events  4:redirector
+#
+# Each window: top pane = shell in the repo root; bottom pane(s) = dev server(s).
+# Server panes cd into the repo and PRE-TYPE the dev command (send-keys with no Enter),
+# so nothing runs until you press Enter. To auto-run instead, drop the `&& tmux send-keys ...`
+# wrapper and use `cd <path> && yarn <cmd>`.
+#
+# claude lives in its own session (claude.yml); reach it via the session tree (prefix + s).
+startup_window: frontend
+
+windows:
+  - frontend:
+      layout: even-vertical
+      panes:
+        - cd ~/Desktop/dev/frontend
+        - cd ~/Desktop/dev/frontend && tmux send-keys -t "$TMUX_PANE" 'yarn start'
+  - platform:
+      layout: even-vertical
+      panes:
+        - cd ~/Desktop/dev/platform
+        - cd ~/Desktop/dev/platform && tmux send-keys -t "$TMUX_PANE" 'yarn dev'
+  - redirector:
+      layout: main-horizontal
+      panes:
+        - cd ~/Desktop/dev/louvir-redirector
+        - cd ~/Desktop/dev/louvir-redirector/apps/backend && tmux send-keys -t "$TMUX_PANE" 'yarn start:dev'
+        - cd ~/Desktop/dev/louvir-redirector/apps/frontend && tmux send-keys -t "$TMUX_PANE" 'yarn start'
+  - events:
+      layout: even-vertical
+      panes:
+        - cd ~/Desktop/dev/louvir-events
+        - cd ~/Desktop/dev/louvir-events && tmux send-keys -t "$TMUX_PANE" 'yarn start:dev'
